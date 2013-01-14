@@ -1,0 +1,3 @@
+name: PacketWrapper
+main: com.comphenix.packetwrapper.PacketWrapper
+version: 0.1

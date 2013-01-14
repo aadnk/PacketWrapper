@@ -17,7 +17,11 @@
 
 package com.comphenix.packetwrapper;
 
+import java.lang.reflect.Field;
+import java.util.List;
+
 import com.comphenix.protocol.events.PacketContainer;
+import com.google.common.collect.Lists;
 
 public class Packet3ENamedSoundEffect extends AbstractPacket {
     public static final int ID = 62;
@@ -201,6 +205,26 @@ public class Packet3ENamedSoundEffect extends AbstractPacket {
     	public static final String RANDOM_ANVIL_BREAK = "random.anvil_break";
     	public static final String RANDOM_ANVIL_LAND = "random.anvil_land";
     	public static final String RANDOM_ANVIL_USE = "random.anvil_use";
+    	
+    	private static String[] values;
+    	
+    	public static String[] values() {
+    		if (values == null) {
+    			List<String> result = Lists.newArrayList();
+    			
+    			// Get all public fields
+    			for (Field field : NamedSoundEffects.class.getFields()) {
+    				try {
+						result.add((String) field.get(null));
+					} catch (Exception e) {
+						throw new RuntimeException("Cannot read field.", e);
+					}
+    			}
+    			
+    			values = result.toArray(new String[0]);
+    		}
+    		return values;
+    	}
     }
     
     /**

@@ -23,12 +23,12 @@ public class Packet0CPlayerLook extends Packet0APlayer {
     public static final int ID = 12;
     
     public Packet0CPlayerLook() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet0CPlayerLook(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

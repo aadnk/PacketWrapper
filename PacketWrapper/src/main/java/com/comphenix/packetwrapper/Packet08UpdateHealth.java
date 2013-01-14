@@ -23,12 +23,12 @@ public class Packet08UpdateHealth extends AbstractPacket {
     public static final int ID = 8;
     
     public Packet08UpdateHealth() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet08UpdateHealth(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

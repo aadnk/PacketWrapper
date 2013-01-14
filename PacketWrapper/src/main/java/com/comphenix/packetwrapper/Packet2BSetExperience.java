@@ -23,12 +23,12 @@ public class Packet2BSetExperience extends AbstractPacket {
     public static final int ID = 43;
     
     public Packet2BSetExperience() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet2BSetExperience(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

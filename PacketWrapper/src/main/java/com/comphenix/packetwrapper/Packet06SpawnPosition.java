@@ -25,12 +25,12 @@ public class Packet06SpawnPosition extends AbstractPacket {
     public static final int ID = 6;
     
     public Packet06SpawnPosition() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet06SpawnPosition(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

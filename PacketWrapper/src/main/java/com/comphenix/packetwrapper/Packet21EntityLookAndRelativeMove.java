@@ -23,12 +23,12 @@ public class Packet21EntityLookAndRelativeMove extends Packet1EEntity {
     public static final int ID = 33;
     
     public Packet21EntityLookAndRelativeMove() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet21EntityLookAndRelativeMove(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

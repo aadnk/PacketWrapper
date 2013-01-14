@@ -25,12 +25,12 @@ public class Packet83ItemData extends AbstractPacket {
     public static final int ID = 131;
     
     public Packet83ItemData() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet83ItemData(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

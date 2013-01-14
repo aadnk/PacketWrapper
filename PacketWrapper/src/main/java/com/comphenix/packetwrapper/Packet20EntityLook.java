@@ -23,12 +23,12 @@ public class Packet20EntityLook extends Packet1EEntity {
     public static final int ID = 32;
     
     public Packet20EntityLook() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet20EntityLook(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

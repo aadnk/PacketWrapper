@@ -23,12 +23,12 @@ public class Packet6CEnchantItem extends AbstractPacket {
     public static final int ID = 108;
     
     public Packet6CEnchantItem() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet6CEnchantItem(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

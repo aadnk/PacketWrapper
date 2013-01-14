@@ -28,12 +28,12 @@ public class Packet02Handshake extends AbstractPacket {
     public static final int ID = 2;
     
     public Packet02Handshake() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet02Handshake(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

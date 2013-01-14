@@ -37,12 +37,12 @@ public class Packet01LoginRequest extends AbstractPacket {
     public static final int ID = 1;
     
     public Packet01LoginRequest() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet01LoginRequest(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

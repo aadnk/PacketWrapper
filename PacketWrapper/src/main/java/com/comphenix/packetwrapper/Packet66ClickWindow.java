@@ -25,12 +25,12 @@ public class Packet66ClickWindow extends AbstractPacket {
     public static final int ID = 102;
     
     public Packet66ClickWindow() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet66ClickWindow(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

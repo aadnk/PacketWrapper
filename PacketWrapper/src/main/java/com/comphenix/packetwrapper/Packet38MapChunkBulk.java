@@ -23,12 +23,12 @@ public class Packet38MapChunkBulk extends AbstractPacket {
     public static final int ID = 56;
     
     public Packet38MapChunkBulk() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet38MapChunkBulk(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

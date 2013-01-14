@@ -50,12 +50,12 @@ public class Packet26EntityStatus extends AbstractPacket {
     }
     
     public Packet26EntityStatus() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet26EntityStatus(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

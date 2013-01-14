@@ -115,12 +115,12 @@ public class Packet0EPlayerDigging extends AbstractPacket {
     }
     
     public Packet0EPlayerDigging() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet0EPlayerDigging(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

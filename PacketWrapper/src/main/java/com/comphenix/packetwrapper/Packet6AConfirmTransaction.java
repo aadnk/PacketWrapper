@@ -23,12 +23,12 @@ public class Packet6AConfirmTransaction extends AbstractPacket {
     public static final int ID = 106;
     
     public Packet6AConfirmTransaction() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet6AConfirmTransaction(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

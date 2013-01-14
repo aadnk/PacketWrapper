@@ -33,12 +33,12 @@ public class Packet14SpawnNamedEntity extends AbstractPacket {
     private static PacketConstructor entityConstructor;
     
     public Packet14SpawnNamedEntity() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet14SpawnNamedEntity(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     public Packet14SpawnNamedEntity(Player player) {

@@ -44,12 +44,12 @@ public class PacketCDClientStatuses extends AbstractPacket {
     }
     
     public PacketCDClientStatuses() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public PacketCDClientStatuses(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

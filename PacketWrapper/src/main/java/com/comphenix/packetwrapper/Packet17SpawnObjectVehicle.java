@@ -71,12 +71,12 @@ public class Packet17SpawnObjectVehicle extends AbstractPacket {
     }
     
     public Packet17SpawnObjectVehicle() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet17SpawnObjectVehicle(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     public Packet17SpawnObjectVehicle(Entity entity, int type, int objectData) {

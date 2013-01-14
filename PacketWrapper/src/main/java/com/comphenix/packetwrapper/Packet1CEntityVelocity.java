@@ -27,12 +27,12 @@ public class Packet1CEntityVelocity extends AbstractPacket {
     public static final int ID = 28;
     
     public Packet1CEntityVelocity() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet1CEntityVelocity(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

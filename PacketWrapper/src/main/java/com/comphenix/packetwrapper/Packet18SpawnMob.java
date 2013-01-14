@@ -33,12 +33,12 @@ public class Packet18SpawnMob extends AbstractPacket {
     private static PacketConstructor entityConstructor;
     
     public Packet18SpawnMob() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet18SpawnMob(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     public Packet18SpawnMob(Entity entity) {

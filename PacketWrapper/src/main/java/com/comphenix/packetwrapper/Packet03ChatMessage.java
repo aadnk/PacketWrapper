@@ -23,12 +23,12 @@ public class Packet03ChatMessage extends AbstractPacket {
     public static final int ID = 3;
     
     public Packet03ChatMessage() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet03ChatMessage(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

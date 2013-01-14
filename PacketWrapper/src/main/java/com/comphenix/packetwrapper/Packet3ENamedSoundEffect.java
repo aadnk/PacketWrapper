@@ -27,12 +27,12 @@ public class Packet3ENamedSoundEffect extends AbstractPacket {
     public static final int ID = 62;
     
     public Packet3ENamedSoundEffect() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet3ENamedSoundEffect(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

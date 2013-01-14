@@ -27,12 +27,12 @@ public class Packet13EntityAction extends AbstractPacket {
     public static final int ID = 19;
     
     public Packet13EntityAction() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet13EntityAction(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

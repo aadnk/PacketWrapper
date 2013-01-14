@@ -23,12 +23,12 @@ public class Packet0APlayer extends AbstractPacket {
     public static final int ID = 10;
     
     public Packet0APlayer() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet0APlayer(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

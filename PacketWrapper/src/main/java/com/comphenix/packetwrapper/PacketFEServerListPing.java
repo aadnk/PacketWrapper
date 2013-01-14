@@ -23,12 +23,12 @@ public class PacketFEServerListPing extends AbstractPacket {
     public static final int ID = 254;
     
     public PacketFEServerListPing() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public PacketFEServerListPing(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

@@ -22,12 +22,12 @@ public class Packet0BPlayerPosition extends Packet0APlayer {
     public static final int ID = 11;
     
     public Packet0BPlayerPosition() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet0BPlayerPosition(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

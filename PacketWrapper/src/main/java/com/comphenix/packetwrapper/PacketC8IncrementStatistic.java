@@ -23,12 +23,12 @@ public class PacketC8IncrementStatistic extends AbstractPacket {
     public static final int ID = 200;
     
     public PacketC8IncrementStatistic() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public PacketC8IncrementStatistic(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

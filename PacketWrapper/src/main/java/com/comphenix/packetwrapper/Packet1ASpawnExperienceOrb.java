@@ -27,12 +27,12 @@ public class Packet1ASpawnExperienceOrb extends AbstractPacket {
     public static final int ID = 26;
     
     public Packet1ASpawnExperienceOrb() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet1ASpawnExperienceOrb(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

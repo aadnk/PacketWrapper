@@ -25,12 +25,12 @@ public class Packet67SetSlot extends AbstractPacket {
     public static final int ID = 103;
     
     public Packet67SetSlot() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet67SetSlot(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

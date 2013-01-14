@@ -28,12 +28,12 @@ public class Packet2ARemoveEntityEffect extends AbstractPacket {
     public static final int ID = 42;
     
     public Packet2ARemoveEntityEffect() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet2ARemoveEntityEffect(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

@@ -23,12 +23,12 @@ public class Packet1FEntityRelativeMove extends Packet1EEntity {
     public static final int ID = 31;
     
     public Packet1FEntityRelativeMove() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet1FEntityRelativeMove(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

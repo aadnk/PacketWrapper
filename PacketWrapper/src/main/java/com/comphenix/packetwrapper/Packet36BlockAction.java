@@ -48,12 +48,12 @@ public class Packet36BlockAction extends AbstractPacket {
     }
     
     public Packet36BlockAction() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet36BlockAction(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

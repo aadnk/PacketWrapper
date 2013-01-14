@@ -23,12 +23,12 @@ public class Packet47SpawnGlobalEntity extends AbstractPacket {
     public static final int ID = 71;
     
     public Packet47SpawnGlobalEntity() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet47SpawnGlobalEntity(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

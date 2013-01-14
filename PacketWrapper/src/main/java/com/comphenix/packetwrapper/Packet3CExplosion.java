@@ -25,12 +25,12 @@ public class Packet3CExplosion extends AbstractPacket {
     public static final int ID = 60;
     
     public Packet3CExplosion() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet3CExplosion(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

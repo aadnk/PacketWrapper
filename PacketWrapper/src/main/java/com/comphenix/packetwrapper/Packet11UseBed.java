@@ -27,12 +27,12 @@ public class Packet11UseBed extends AbstractPacket {
     public static final int ID = 17;
     
     public Packet11UseBed() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet11UseBed(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

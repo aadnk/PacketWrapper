@@ -23,7 +23,7 @@ public class Packet69UpdateWindowProperty extends AbstractPacket {
     public static final int ID = 105;
     
     public Packet69UpdateWindowProperty() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
@@ -51,7 +51,7 @@ public class Packet69UpdateWindowProperty extends AbstractPacket {
     }
     
     public Packet69UpdateWindowProperty(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

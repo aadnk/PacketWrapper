@@ -27,12 +27,12 @@ public class Packet23EntityHeadLook extends AbstractPacket {
     public static final int ID = 35;
     
     public Packet23EntityHeadLook() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet23EntityHeadLook(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

@@ -121,12 +121,12 @@ public class Packet3DSoundOrParticleEffect extends AbstractPacket {
     }
     
     public Packet3DSoundOrParticleEffect() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet3DSoundOrParticleEffect(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

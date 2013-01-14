@@ -28,12 +28,12 @@ public class Packet29EntityEffect extends AbstractPacket {
     public static final int ID = 41;
     
     public Packet29EntityEffect() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet29EntityEffect(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

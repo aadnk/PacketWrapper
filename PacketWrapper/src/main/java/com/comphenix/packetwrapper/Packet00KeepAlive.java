@@ -28,12 +28,12 @@ public class Packet00KeepAlive extends AbstractPacket {
     public static final int ID = 0;
     
     public Packet00KeepAlive() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet00KeepAlive(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

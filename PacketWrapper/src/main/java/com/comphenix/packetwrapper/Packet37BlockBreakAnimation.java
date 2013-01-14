@@ -27,12 +27,12 @@ public class Packet37BlockBreakAnimation extends AbstractPacket {
     public static final int ID = 55;
     
     public Packet37BlockBreakAnimation() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet37BlockBreakAnimation(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

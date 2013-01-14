@@ -27,12 +27,12 @@ public class Packet27AttachEntity extends AbstractPacket {
     public static final int ID = 39;
     
     public Packet27AttachEntity() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet27AttachEntity(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

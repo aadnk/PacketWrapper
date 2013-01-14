@@ -23,12 +23,12 @@ public class Packet04TimeUpdate extends AbstractPacket {
     public static final int ID = 4;
     
     public Packet04TimeUpdate() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet04TimeUpdate(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

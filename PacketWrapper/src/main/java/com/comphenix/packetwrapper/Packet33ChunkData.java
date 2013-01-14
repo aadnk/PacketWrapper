@@ -23,12 +23,12 @@ public class Packet33ChunkData extends AbstractPacket {
     public static final int ID = 51;
     
     public Packet33ChunkData() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet33ChunkData(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

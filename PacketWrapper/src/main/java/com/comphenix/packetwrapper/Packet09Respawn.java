@@ -27,12 +27,12 @@ public class Packet09Respawn extends AbstractPacket {
     public static final int ID = 9;
     
     public Packet09Respawn() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet09Respawn(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

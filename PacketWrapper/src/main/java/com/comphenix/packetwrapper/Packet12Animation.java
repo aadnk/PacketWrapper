@@ -57,12 +57,12 @@ public class Packet12Animation extends AbstractPacket {
     }
     
     public Packet12Animation() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet12Animation(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

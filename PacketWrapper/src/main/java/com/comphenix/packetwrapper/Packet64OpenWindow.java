@@ -41,12 +41,12 @@ public class Packet64OpenWindow extends AbstractPacket {
     );
     
     public Packet64OpenWindow() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet64OpenWindow(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

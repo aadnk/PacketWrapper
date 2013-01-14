@@ -23,12 +23,12 @@ public class PacketCBTabComplete extends AbstractPacket {
     public static final int ID = 203;
     
     public PacketCBTabComplete() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public PacketCBTabComplete(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

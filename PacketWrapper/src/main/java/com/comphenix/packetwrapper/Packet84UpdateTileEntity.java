@@ -24,12 +24,12 @@ public class Packet84UpdateTileEntity extends AbstractPacket {
     public static final int ID = 132;
     
     public Packet84UpdateTileEntity() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet84UpdateTileEntity(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

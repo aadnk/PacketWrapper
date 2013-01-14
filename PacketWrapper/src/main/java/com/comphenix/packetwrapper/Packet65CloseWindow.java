@@ -22,12 +22,12 @@ public class Packet65CloseWindow extends AbstractPacket {
     public static final int ID = 101;
     
     public Packet65CloseWindow() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet65CloseWindow(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

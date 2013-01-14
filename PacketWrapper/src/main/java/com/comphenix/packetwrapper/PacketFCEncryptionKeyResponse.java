@@ -25,12 +25,12 @@ public class PacketFCEncryptionKeyResponse extends AbstractPacket {
     public static final int ID = 252;
     
     public PacketFCEncryptionKeyResponse() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public PacketFCEncryptionKeyResponse(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

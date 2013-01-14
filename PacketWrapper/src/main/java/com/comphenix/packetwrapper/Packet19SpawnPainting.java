@@ -32,12 +32,12 @@ public class Packet19SpawnPainting extends AbstractPacket {
     private static PacketConstructor entityConstructor;
     
     public Packet19SpawnPainting() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet19SpawnPainting(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     public Packet19SpawnPainting(Painting painting) {

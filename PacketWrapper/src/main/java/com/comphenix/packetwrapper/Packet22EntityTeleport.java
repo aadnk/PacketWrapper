@@ -27,12 +27,12 @@ public class Packet22EntityTeleport extends AbstractPacket {
     public static final int ID = 34;
     
     public Packet22EntityTeleport() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet22EntityTeleport(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

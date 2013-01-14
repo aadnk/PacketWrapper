@@ -28,12 +28,12 @@ public class Packet05EntityEquipment extends AbstractPacket {
     public static final int ID = 5;
     
     public Packet05EntityEquipment() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet05EntityEquipment(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

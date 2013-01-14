@@ -23,12 +23,12 @@ public class Packet0DPlayerPositionAndLook extends Packet0APlayer {
     public static final int ID = 13;
     
     public Packet0DPlayerPositionAndLook() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet0DPlayerPositionAndLook(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

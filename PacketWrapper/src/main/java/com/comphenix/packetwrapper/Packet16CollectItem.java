@@ -33,12 +33,12 @@ public class Packet16CollectItem extends AbstractPacket {
     public static final int ID = 22;
     
     public Packet16CollectItem() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet16CollectItem(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

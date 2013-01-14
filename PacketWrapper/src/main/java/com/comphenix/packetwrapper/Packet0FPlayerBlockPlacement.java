@@ -25,12 +25,12 @@ public class Packet0FPlayerBlockPlacement extends AbstractPacket {
     public static final int ID = 15;
     
     public Packet0FPlayerBlockPlacement() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet0FPlayerBlockPlacement(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

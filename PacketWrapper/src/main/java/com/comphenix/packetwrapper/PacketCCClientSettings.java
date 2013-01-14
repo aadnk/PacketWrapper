@@ -23,12 +23,12 @@ public class PacketCCClientSettings extends AbstractPacket {
     public static final int ID = 204;
     
     public PacketCCClientSettings() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public PacketCCClientSettings(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

@@ -23,12 +23,12 @@ public class PacketFFDisconnectKick extends AbstractPacket {
     public static final int ID = 255;
     
     public PacketFFDisconnectKick() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public PacketFFDisconnectKick(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

@@ -23,12 +23,12 @@ public class PacketCAPlayerAbilities extends AbstractPacket {
     public static final int ID = 202;
     
     public PacketCAPlayerAbilities() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public PacketCAPlayerAbilities(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

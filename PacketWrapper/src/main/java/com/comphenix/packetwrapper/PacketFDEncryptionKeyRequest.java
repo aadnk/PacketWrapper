@@ -25,12 +25,12 @@ public class PacketFDEncryptionKeyRequest extends AbstractPacket {
     public static final int ID = 253;
     
     public PacketFDEncryptionKeyRequest() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public PacketFDEncryptionKeyRequest(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

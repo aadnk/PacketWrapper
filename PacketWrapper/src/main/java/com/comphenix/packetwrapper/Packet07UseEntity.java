@@ -27,12 +27,12 @@ public class Packet07UseEntity extends AbstractPacket {
     public static final int ID = 7;
     
     public Packet07UseEntity() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet07UseEntity(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

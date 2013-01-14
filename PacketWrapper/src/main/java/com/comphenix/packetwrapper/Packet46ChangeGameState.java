@@ -25,12 +25,12 @@ public class Packet46ChangeGameState extends AbstractPacket {
     public static final int ID = 70;
     
     public Packet46ChangeGameState() {
-        super(new PacketContainer(ID));
+        super(new PacketContainer(ID), ID);
         handle.getModifier().writeDefaults();
     }
     
     public Packet46ChangeGameState(PacketContainer packet) {
-        super(packet);
+        super(packet, ID);
     }
     
     /**

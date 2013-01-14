@@ -41,7 +41,7 @@ public class Packet19SpawnPainting extends AbstractPacket {
     }
     
     public Packet19SpawnPainting(Painting painting) {
-        super(fromPainting(painting));
+        super(fromPainting(painting), ID);
     }
     
     // Useful constructor

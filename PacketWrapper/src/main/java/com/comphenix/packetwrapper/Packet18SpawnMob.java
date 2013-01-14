@@ -42,7 +42,7 @@ public class Packet18SpawnMob extends AbstractPacket {
     }
     
     public Packet18SpawnMob(Entity entity) {
-        super(fromEntity(entity));
+        super(fromEntity(entity), ID);
     }
     
     // Useful constructor

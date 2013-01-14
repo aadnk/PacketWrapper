@@ -80,7 +80,7 @@ public class Packet17SpawnObjectVehicle extends AbstractPacket {
     }
     
     public Packet17SpawnObjectVehicle(Entity entity, int type, int objectData) {
-        super(fromEntity(entity, type, objectData));
+        super(fromEntity(entity, type, objectData), ID);
     }
     
     // Useful constructor

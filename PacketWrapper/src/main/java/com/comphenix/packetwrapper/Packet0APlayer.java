@@ -28,7 +28,11 @@ public class Packet0APlayer extends AbstractPacket {
     }
     
     public Packet0APlayer(PacketContainer packet) {
-        super(packet, ID);
+    	super(packet, ID);
+    }
+    
+    protected Packet0APlayer(PacketContainer packet, int id) {
+        super(packet, id);
     }
     
     /**

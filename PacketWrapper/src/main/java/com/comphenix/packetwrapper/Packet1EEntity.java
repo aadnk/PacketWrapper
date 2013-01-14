@@ -35,6 +35,10 @@ public class Packet1EEntity extends AbstractPacket {
         super(packet, ID);
     }
     
+    protected Packet1EEntity(PacketContainer packet, int id) {
+        super(packet, id);
+    }
+    
     /**
      * Retrieve entity ID.
      * @return The current EID

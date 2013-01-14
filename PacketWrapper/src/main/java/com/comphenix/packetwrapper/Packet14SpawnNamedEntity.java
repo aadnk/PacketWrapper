@@ -42,7 +42,7 @@ public class Packet14SpawnNamedEntity extends AbstractPacket {
     }
     
     public Packet14SpawnNamedEntity(Player player) {
-        super(fromPlayer(player));
+        super(fromPlayer(player), ID);
     }
     
     // Useful constructor

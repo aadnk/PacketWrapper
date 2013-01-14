@@ -1,3 +1,5 @@
 name: PacketWrapper
 main: com.comphenix.packetwrapper.PacketWrapper
-version: 0.1
+
+description: Contains wrappers for each packet in Minecraft.
+version: 1.4.6-R1.0

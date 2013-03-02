@@ -23,7 +23,7 @@ public class BlockChangeArray {
 	 */
 	public class BlockChange {
 		// Index of the block change entry that we may change
-		private final int index;
+		private int index;
 		
 		private BlockChange(int index) {
 			this.index = index;
@@ -225,6 +225,22 @@ public class BlockChangeArray {
 		if (index < 0 || index >= getSize())
 			throw new IllegalArgumentException("Index is out of bounds.");
 		return new BlockChange(index);
+	}
+	
+	/**
+	 * Retrieve a view of the block change entry at the given index.
+	 * <p>
+	 * Any modification to this view will be stored in the block change array itself.
+	 * @param index - index of the block change to retrieve. 
+	 * @param reuse - an old block change that will be reused, or NULL to create a new block change.
+	 * @return A view of the block change entry.
+	 */
+	public BlockChange getBlockChange(int index, BlockChange reuse) {
+		if (reuse != null) {
+			reuse.index = index;
+			return reuse;
+		}
+		return getBlockChange(index);
 	}
 	
 	/**

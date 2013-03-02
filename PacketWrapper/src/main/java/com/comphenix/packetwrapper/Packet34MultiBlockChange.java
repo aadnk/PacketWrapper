@@ -19,6 +19,13 @@ package com.comphenix.packetwrapper;
 
 import com.comphenix.protocol.events.PacketContainer;
 
+/**
+ * Represents a multi-block change.
+ * <p>
+ * See also {@link BlockChangeArray} for constructing an array of block changes.
+ * 
+ * @author Kristian
+ */
 public class Packet34MultiBlockChange extends AbstractPacket {
     public static final int ID = 52;
     
@@ -123,7 +130,7 @@ public class Packet34MultiBlockChange extends AbstractPacket {
     }
     
     /**
-     * Set the number of blocks affected.
+     * Set the record data.
      * <p>
      * Each record is four bytes. See {@link #getRecordData()} for more information.
      * @param value - new value.
@@ -131,6 +138,22 @@ public class Packet34MultiBlockChange extends AbstractPacket {
     public void setRecordData(byte[] value) {
     	setRecordCount((short) value.length);
         handle.getByteArrays().write(0, value);
+    }
+    
+    /**
+     * Set the record data using the given helper array.
+     * @param array - useful helper array.
+     */
+    public void setRecordData(BlockChangeArray array) {
+    	setRecordData(array.toByteArray());
+    }
+    
+    /**
+     * Retrieve a copy of the record data as a block change array.
+     * @return The copied block change array.
+     */
+    public BlockChangeArray getRecordDataArray() {
+    	return new BlockChangeArray(getRecordData());
     }
 }
 

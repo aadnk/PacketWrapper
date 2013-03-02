@@ -3,7 +3,8 @@ package com.comphenix.packetwrapper;
 import java.nio.ByteBuffer;
 import java.nio.IntBuffer;
 
-import org.bukkit.block.Block;
+import org.bukkit.Location;
+import org.bukkit.World;
 
 /**
  * Utility class for creating arrays of block changes.
@@ -28,6 +29,41 @@ public class BlockChangeArray {
 			this.index = index;
 		}
 
+		/**
+		 * Set the location of the block change.
+		 * <p<
+		 * The coordinates will be correctly converted to relative coordinates, provided that all the blocks
+		 * are from the same chunk (16x16 column of blocks).
+		 * @param loc - location.
+		 * @return This block change, for chaining.
+		 */
+		public BlockChange setLocation(Location loc) {
+			setRelativeX(loc.getBlockX() & 0xF);
+			setRelativeZ(loc.getBlockZ() & 0xF);
+			setAbsoluteY(loc.getBlockY());
+			return this;
+		}
+		
+		/**
+		 * Retrieve the location of this block change.
+		 * <p>
+		 * The world and absolute chunk position must be provided.
+		 * @param world - the world the block belongs to.
+		 * @param chunkX - the x position of the origin chunk
+		 * @param chunkZ - the y position of the origin chunk
+		 * @return The location.
+		 */
+		public Location getLocation(World world, int chunkX, int chunkZ) {
+			if (world == null)
+				throw new IllegalArgumentException("World cannot be NULL.");
+			return new Location(
+					world,
+					(chunkX << 4) + getRelativeX(),
+					getAbsoluteY(),
+					(chunkZ << 4) + getRelativeZ()
+			);
+		}
+		
 		/**
 		 * Set the relative x-axis position of current block change in the chunk.
 		 * @param relativeX - relative block change location.
@@ -126,6 +162,14 @@ public class BlockChangeArray {
 			return index;
 		}
 		
+		/**
+		 * Retrieve the integer representation of this block change.
+		 * @return Integer representation.
+		 */
+		private int asInteger() {
+			return data[index];
+		}
+		
 		// Should be inlined
 		private void setValue(int value, int leftShift, int updateMask) {
 			data[index] = ((value << leftShift) & updateMask) | (data[index] & ~updateMask);
@@ -178,35 +222,27 @@ public class BlockChangeArray {
 	 * @return A view of the block change entry.
 	 */
 	public BlockChange getBlockChange(int index) {
-		if (index < 0 || index >= getBlockChanges())
+		if (index < 0 || index >= getSize())
 			throw new IllegalArgumentException("Index is out of bounds.");
 		return new BlockChange(index);
 	}
 	
 	/**
 	 * Set the block change at the specified index to contain the given block.
-	 * <p>
-	 * The coordinates will be correctly converted to relative coordinates, provided that the blocks
-	 * are all from the same chunk (16x16 column of blocks).
-	 * @param index - the block change index.
+	 * @param loc - the location that will be converted.
 	 * @param block - the new content of the block change.
 	 */
-	public void setBlock(int index, Block block) {
-		if (block == null)
-			throw new IllegalArgumentException("Block cannot be NULL.");
-		getBlockChange(index).
-			setRelativeX(block.getX() & 0xF).
-			setRelativeZ(block.getZ() & 0xF).
-			setAbsoluteY(block.getY()).
-			setBlockID(block.getTypeId()).
-			setMetadata(block.getData());
+	public void setBlockChange(int index, BlockChange change) {
+		if (change == null)
+			throw new IllegalArgumentException("Block change cannot be NULL.");
+		data[index] = change.asInteger();
 	}
 	
 	/**
 	 * Retrieve the number of block changes.
 	 * @return The number of block changes.
 	 */
-	public int getBlockChanges() {
+	public int getSize() {
 		return data.length;
 	}
 	

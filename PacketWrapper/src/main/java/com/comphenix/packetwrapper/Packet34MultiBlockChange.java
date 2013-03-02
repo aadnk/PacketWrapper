@@ -129,6 +129,7 @@ public class Packet34MultiBlockChange extends AbstractPacket {
      * @param value - new value.
     */
     public void setRecordData(byte[] value) {
+    	setRecordCount((short) value.length);
         handle.getByteArrays().write(0, value);
     }
 }

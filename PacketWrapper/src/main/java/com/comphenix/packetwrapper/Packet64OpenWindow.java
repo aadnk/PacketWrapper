@@ -129,6 +129,25 @@ public class Packet64OpenWindow extends AbstractPacket {
         handle.getIntegers().write(2, (int) value);
     }
     
+    /**
+     * Set whether or not the title will be used as is.
+     * <p>
+     * If false, the client will look up a string like "window.minecart". If true, the client uses what the server provides. 
+     * @param value - new value.
+    */
+    public void setTitleExact(boolean value) {
+        handle.getSpecificModifier(boolean.class).write(0, value);
+    }
+    
+    /**
+     * Retrieve whether or not the title will be used as is.
+     * <p>
+     * If false, the client will look up a string like "window.minecart". If true, the client uses what the server provides. 
+     * @return TRUE if it is, FALSE otherwise.
+    */
+    public boolean isTitleExact() {
+        return handle.getSpecificModifier(boolean.class).read(0);
+    }
 }
 
 

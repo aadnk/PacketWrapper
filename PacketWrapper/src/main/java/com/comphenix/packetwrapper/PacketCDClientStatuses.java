@@ -18,6 +18,7 @@
 package com.comphenix.packetwrapper;
 
 import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.reflect.IntEnum;
 
 /**
  * Sent when the client is ready to complete login and when the client is ready to respawn after death.
@@ -32,7 +33,7 @@ public class PacketCDClientStatuses extends AbstractPacket {
      * 
      * @author Kristian
      */
-    public static class Payloads {
+    public static class Payloads extends IntEnum {
     	public static final int INITIAL_SPAWN = 0;
     	public static final int RESPAWN_AFTER_DEATH = 1;
 

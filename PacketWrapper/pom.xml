@@ -4,7 +4,7 @@
 	<groupId>com.comphenix.packetwrapper</groupId>
 	<artifactId>PacketWrapper</artifactId>
 	<packaging>jar</packaging>
-	<version>1.4.7-R1.0</version>
+	<version>1.5.1-R0.1</version>
 	<name>PacketWrapper</name>
 	
 	<repositories>
@@ -47,7 +47,7 @@
 		<dependency>
   			<groupId>com.comphenix.protocol</groupId>
   			<artifactId>ProtocolLib</artifactId>
-  			<version>2.0.0</version>
+  			<version>2.3.0</version>
   		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

@@ -203,7 +203,7 @@ public class BlockChangeArray {
 	 * @param data - the data array to store internally.
 	 */
 	public BlockChangeArray(byte[] input) {
-		if ((data.length % RECORD_SIZE) != 0)
+		if ((input.length % RECORD_SIZE) != 0)
 			throw new IllegalArgumentException("The lenght of the input data array should be a multiple of " + RECORD_SIZE + ".");
 		
 		IntBuffer source = ByteBuffer.wrap(input).asIntBuffer();

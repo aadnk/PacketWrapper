@@ -32,52 +32,70 @@ public class Packet21EntityLookAndRelativeMove extends Packet1EEntity {
     }
     
     /**
-     * Retrieve the relative movement in the x axis as an absolute integer.
+     * Retrieve the relative movement in the x axis.
+     * <p>
+     * Note that this cannot exceed 4 blocks in either direction.
      * @return The current dX
     */
-    public byte getDx() {
-        return handle.getBytes().read(0);
+    public double getDx() {
+        return handle.getBytes().read(0) / 32.0D;
     }
     
     /**
-     * Set the relative movement in the x axis as an absolute integer.
+     * Set the relative movement in the x axis.
+     * <p>
+     * Note that this cannot exceed 4 blocks in either direction.
      * @param value - new value.
     */
-    public void setDx(byte value) {
-        handle.getBytes().write(0, value);
+    public void setX(double value) {
+    	if (Math.abs(value) > 4)
+    		throw new IllegalArgumentException("Displacement cannot exceed 4 meters.");
+        handle.getBytes().write(0, (byte) Math.min(Math.floor(value * 32.0D), 127));
     }
     
     /**
-     * Retrieve the relative movement in the y axis as an absolute integer.
+     * Retrieve the relative movement in the y axis.
+     * <p>
+     * Note that this cannot exceed 4 blocks in either direction.
      * @return The current dY
     */
-    public byte getDy() {
-        return handle.getBytes().read(1);
+    public double getDy() {
+        return handle.getBytes().read(1) / 32.0D;
     }
     
     /**
-     * Set the relative movement in the y axis as an absolute integer.
+     * Set the relative movement in the y axis.
+     * <p>
+     * Note that this cannot exceed 4 blocks in either direction.
      * @param value - new value.
     */
-    public void setDy(byte value) {
-        handle.getBytes().write(1, value);
+    public void setDy(double value) {
+    	if (Math.abs(value) > 4)
+    		throw new IllegalArgumentException("Displacement cannot exceed 4 meters.");
+        handle.getBytes().write(1, (byte) Math.min(Math.floor(value * 32.0D), 127));
     }
     
     /**
-     * Retrieve the relative movement in the z axis as an absolute integer.
+     * Retrieve the relative movement in the z axis.
+     * <p>
+     * Note that this cannot exceed 4 blocks in either direction.
      * @return The current dZ
     */
-    public byte getDz() {
-        return handle.getBytes().read(2);
+    public double getDz() {
+        return handle.getBytes().read(2) / 32.0D;
     }
     
     /**
-     * Set the relative movement in the z axis as an absolute integer.
+     * Set the relative movement in the z axis.
+     * <p>
+     * Note that this cannot exceed 4 blocks in either direction.
      * @param value - new value.
     */
-    public void setDz(byte value) {
-        handle.getBytes().write(2, value);
-    }   
+    public void setZ(double value) {
+    	if (Math.abs(value) > 4)
+    		throw new IllegalArgumentException("Displacement cannot exceed 4 meters.");
+        handle.getBytes().write(2, (byte) Math.min(Math.floor(value * 32.0D), 127));
+    }
     
     /**
      * Retrieve the yaw of the current entity.

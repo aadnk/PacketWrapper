@@ -36,11 +36,27 @@ public class Packet27AttachEntity extends AbstractPacket {
     }
     
     /**
+     * Retrieve whether or not the entity is leached onto the vehicle.
+     * @return TRUE if it is, FALSE otherwise.
+    */
+    public boolean getLeached() {
+        return handle.getIntegers().read(0) != 0;
+    }
+    
+    /**
+     * Set whether or not the entity is leached onto the vehicle.
+     * @param value - TRUE if it is leached, FALSE otherwise.
+    */
+    public void setLeached(boolean value) {
+        handle.getIntegers().write(0, value ? 1 : 0);
+    }
+    
+    /**
      * Retrieve the player entity ID being attached.
      * @return The current Entity ID
     */
     public int getEntityId() {
-        return handle.getIntegers().read(0);
+        return handle.getIntegers().read(1);
     }
     
     /**
@@ -48,7 +64,7 @@ public class Packet27AttachEntity extends AbstractPacket {
      * @param value - new value.
     */
     public void setEntityId(int value) {
-        handle.getIntegers().write(0, value);
+        handle.getIntegers().write(1, value);
     }
 
     /**
@@ -57,7 +73,7 @@ public class Packet27AttachEntity extends AbstractPacket {
      * @return The entity.
      */
     public Entity getEntity(World world) {
-    	return handle.getEntityModifier(world).read(0);
+    	return handle.getEntityModifier(world).read(1);
     }
 
     /**
@@ -74,7 +90,7 @@ public class Packet27AttachEntity extends AbstractPacket {
      * @return The current Vehicle ID
     */
     public int getVehicleId() {
-        return handle.getIntegers().read(1);
+        return handle.getIntegers().read(2);
     }
     
     /**
@@ -83,7 +99,7 @@ public class Packet27AttachEntity extends AbstractPacket {
      * @return The vehicle.
      */
     public Entity getVehicle(World world) {
-    	return handle.getEntityModifier(world).read(1);
+    	return handle.getEntityModifier(world).read(2);
     }
 
     /**
@@ -100,7 +116,7 @@ public class Packet27AttachEntity extends AbstractPacket {
      * @param value - new value.
     */
     public void setVehicleId(int value) {
-        handle.getIntegers().write(1, value);
+        handle.getIntegers().write(2, value);
     }
 }
 

@@ -83,7 +83,24 @@ public class Packet13EntityAction extends AbstractPacket {
     */
     public void setActionId(byte value) {
         handle.getIntegers().write(1, (int) value);
-    }   
+    }
+    
+    
+    /**
+     * Retrieve the unknown field related with horses.
+     * @return The unknown field, ranged from 0 to 90.
+    */
+    public int getUnknown() {
+        return handle.getIntegers().read(2);
+    }
+    
+    /**
+     * Set the unknown field related with horses.
+     * @param value - new value, ranged from 0 to 90.
+    */
+    public void setUnknown(int value) {
+        handle.getIntegers().write(2, value);
+    }
 }
 
 

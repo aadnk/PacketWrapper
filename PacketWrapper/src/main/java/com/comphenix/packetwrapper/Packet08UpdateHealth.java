@@ -37,8 +37,8 @@ public class Packet08UpdateHealth extends AbstractPacket {
      * Value zero or less is dead. 20 is the full HP.
      * @return The current Health
     */
-    public short getHealth() {
-        return handle.getIntegers().read(0).shortValue();
+    public float getHealth() {
+        return handle.getFloat().read(0);
     }
     
     /**
@@ -47,8 +47,8 @@ public class Packet08UpdateHealth extends AbstractPacket {
      * Value zero or less is dead. 20 is the full HP.
      * @param value - new value.
     */
-    public void setHealth(short value) {
-        handle.getIntegers().write(0, (int) value);
+    public void setHealth(float value) {
+        handle.getFloat().write(0, value);
     }
     
     /**
@@ -58,7 +58,7 @@ public class Packet08UpdateHealth extends AbstractPacket {
      * @return The current food level.
     */
     public short getFood() {
-        return handle.getIntegers().read(1).shortValue();
+        return handle.getIntegers().read(0).shortValue();
     }
     
     /**
@@ -68,7 +68,7 @@ public class Packet08UpdateHealth extends AbstractPacket {
      * @param value - new value.
     */
     public void setFood(short value) {
-        handle.getIntegers().write(1, (int) value);
+        handle.getIntegers().write(0, (int) value);
     }
     
     /**
@@ -78,7 +78,7 @@ public class Packet08UpdateHealth extends AbstractPacket {
      * @return The current Food Saturation
     */
     public float getFoodSaturation() {
-        return handle.getFloat().read(0);
+        return handle.getFloat().read(1);
     }
     
     /**
@@ -88,7 +88,7 @@ public class Packet08UpdateHealth extends AbstractPacket {
      * @param value - new value.
     */
     public void setFoodSaturation(float value) {
-        handle.getFloat().write(0, value);
+        handle.getFloat().write(1, value);
     }
 }
 

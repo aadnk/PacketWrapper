@@ -17,7 +17,12 @@
 
 package com.comphenix.packetwrapper;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import com.comphenix.protocol.events.PacketContainer;
+import com.google.common.base.Preconditions;
 
 public class Packet03ChatMessage extends AbstractPacket {
     public static final int ID = 3;
@@ -32,19 +37,42 @@ public class Packet03ChatMessage extends AbstractPacket {
     }
     
     /**
-     * Retrieve user input must be sanitized server-side.
+     * Retrieve the message sent by the client.
+     * <p>
+     * Must be sanitized server-side. 
      * @return The current Message
     */
-    public String getMessage() {
+    public String getClientMessage() {
         return handle.getStrings().read(0);
     }
     
     /**
-     * Set user input must be sanitized server-side.
+     * Set the message sent by the client.
+     * <p>
+     * Must be sanitized server-side.
      * @param value - new value.
     */
-    public void setMessage(String value) {
+    public void setClientMessage(String value) {
         handle.getStrings().write(0, value);
+    }
+    
+    /**
+     * Retrieve the JSON object that will be sent by the server.
+     * @return A JSONObject, JSONArray, String or a Number object.
+     * @throws ParseException If the parser encountered corrupt data.
+     */
+    public Object getServerJson() throws ParseException {
+    	JSONParser parser = new JSONParser();
+    	return parser.parse(getClientMessage());
+    }
+    
+    /**
+     * Set the JSON object that will be sent by the server.
+     * @param object - the object to send.
+     */
+    public void setServerJson(JSONObject object) {
+    	Preconditions.checkNotNull(object, "object cannot be NULL.");
+    	setClientMessage(object.toJSONString());
     }
 }
 

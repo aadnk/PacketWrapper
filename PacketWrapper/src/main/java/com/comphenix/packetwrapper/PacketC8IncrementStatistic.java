@@ -51,16 +51,16 @@ public class PacketC8IncrementStatistic extends AbstractPacket {
      * Retrieve the amount to increment the statistic.
      * @return The current Amount
     */
-    public byte getAmount() {
-        return handle.getIntegers().read(1).byteValue();
+    public int getAmount() {
+        return handle.getIntegers().read(1);
     }
     
     /**
      * Set the amount to increment the statistic.
      * @param value - new value.
     */
-    public void setAmount(byte value) {
-        handle.getIntegers().write(1, (int) value);
+    public void setAmount(int value) {
+        handle.getIntegers().write(1, value);
     }
 }
 

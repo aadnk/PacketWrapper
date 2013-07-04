@@ -148,6 +148,26 @@ public class Packet64OpenWindow extends AbstractPacket {
     public boolean isTitleExact() {
         return handle.getSpecificModifier(boolean.class).read(0);
     }
+    
+    /**
+     * Retrieve the unknown field.
+     * <p>
+     * Only sent when window type is equal to 11 
+     * @return The unknown field.
+    */
+    public int getUnknown() {
+        return handle.getIntegers().read(3);
+    }
+    
+    /**
+     * Set the unknown field.
+     * <p>
+     * Only sent when window type is equal to 11 
+     * @param value - new value of the unknown field.
+    */
+    public void setUnknown(int value) {
+        handle.getIntegers().write(3, value);
+    }
 }
 
 

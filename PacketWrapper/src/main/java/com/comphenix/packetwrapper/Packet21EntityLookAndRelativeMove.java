@@ -19,7 +19,7 @@ package com.comphenix.packetwrapper;
 
 import com.comphenix.protocol.events.PacketContainer;
 
-public class Packet21EntityLookAndRelativeMove extends Packet1EEntity {
+public class Packet21EntityLookAndRelativeMove extends Packet1FEntityRelativeMove {
     public static final int ID = 33;
     
     public Packet21EntityLookAndRelativeMove() {
@@ -29,72 +29,6 @@ public class Packet21EntityLookAndRelativeMove extends Packet1EEntity {
     
     public Packet21EntityLookAndRelativeMove(PacketContainer packet) {
         super(packet, ID);
-    }
-    
-    /**
-     * Retrieve the relative movement in the x axis.
-     * <p>
-     * Note that this cannot exceed 4 blocks in either direction.
-     * @return The current dX
-    */
-    public double getDx() {
-        return handle.getBytes().read(0) / 32.0D;
-    }
-    
-    /**
-     * Set the relative movement in the x axis.
-     * <p>
-     * Note that this cannot exceed 4 blocks in either direction.
-     * @param value - new value.
-    */
-    public void setX(double value) {
-    	if (Math.abs(value) > 4)
-    		throw new IllegalArgumentException("Displacement cannot exceed 4 meters.");
-        handle.getBytes().write(0, (byte) Math.min(Math.floor(value * 32.0D), 127));
-    }
-    
-    /**
-     * Retrieve the relative movement in the y axis.
-     * <p>
-     * Note that this cannot exceed 4 blocks in either direction.
-     * @return The current dY
-    */
-    public double getDy() {
-        return handle.getBytes().read(1) / 32.0D;
-    }
-    
-    /**
-     * Set the relative movement in the y axis.
-     * <p>
-     * Note that this cannot exceed 4 blocks in either direction.
-     * @param value - new value.
-    */
-    public void setDy(double value) {
-    	if (Math.abs(value) > 4)
-    		throw new IllegalArgumentException("Displacement cannot exceed 4 meters.");
-        handle.getBytes().write(1, (byte) Math.min(Math.floor(value * 32.0D), 127));
-    }
-    
-    /**
-     * Retrieve the relative movement in the z axis.
-     * <p>
-     * Note that this cannot exceed 4 blocks in either direction.
-     * @return The current dZ
-    */
-    public double getDz() {
-        return handle.getBytes().read(2) / 32.0D;
-    }
-    
-    /**
-     * Set the relative movement in the z axis.
-     * <p>
-     * Note that this cannot exceed 4 blocks in either direction.
-     * @param value - new value.
-    */
-    public void setZ(double value) {
-    	if (Math.abs(value) > 4)
-    		throw new IllegalArgumentException("Displacement cannot exceed 4 meters.");
-        handle.getBytes().write(2, (byte) Math.min(Math.floor(value * 32.0D), 127));
     }
     
     /**

@@ -51,7 +51,7 @@ public class Packet1FEntityRelativeMove extends Packet1EEntity {
      * Note that this cannot exceed 4 blocks in either direction.
      * @param value - new value.
     */
-    public void setX(double value) {
+    public void setDx(double value) {
     	if (Math.abs(value) > 4)
     		throw new IllegalArgumentException("Displacement cannot exceed 4 meters.");
         handle.getBytes().write(0, (byte) Math.min(Math.floor(value * 32.0D), 127));
@@ -95,7 +95,7 @@ public class Packet1FEntityRelativeMove extends Packet1EEntity {
      * Note that this cannot exceed 4 blocks in either direction.
      * @param value - new value.
     */
-    public void setZ(double value) {
+    public void setDz(double value) {
     	if (Math.abs(value) > 4)
     		throw new IllegalArgumentException("Displacement cannot exceed 4 meters.");
         handle.getBytes().write(2, (byte) Math.min(Math.floor(value * 32.0D), 127));

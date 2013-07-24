@@ -44,7 +44,8 @@ public class Packet3DSoundOrParticleEffect extends AbstractPacket {
     	public static final int MOB_ZOMBIE_METAL = 1011;
     	public static final int MOB_ZOMBIE_WOODBREAK = 1012;
     	public static final int MOB_WITHER_SPAWN = 1013;
-
+    	public static final int MOB_ENDER_DRAGON_END = 1018;
+    	
     	private static final SoundEffects INSTANCE = new SoundEffects();
     	
     	/**

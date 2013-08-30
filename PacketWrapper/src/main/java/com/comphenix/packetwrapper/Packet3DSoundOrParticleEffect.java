@@ -39,12 +39,23 @@ public class Packet3DSoundOrParticleEffect extends AbstractPacket {
     	 */
     	public static final int PLAY_MUSIC_DISK = 1005;
     	public static final int MOB_GHAST_CHARGE = 1007;
+    	/**
+    	 * The sound of {@link #MOB_GHAST_FIREBALL}, but with a lower volume.
+    	 */
+    	public static final int MOB_GHAST_FIREBALL_QUIET = 1009;
     	public static final int MOB_GHAST_FIREBALL = 1008;
     	public static final int MOB_ZOMBIE_WOOD = 1010;
     	public static final int MOB_ZOMBIE_METAL = 1011;
     	public static final int MOB_ZOMBIE_WOODBREAK = 1012;
     	public static final int MOB_WITHER_SPAWN = 1013;
+    	public static final int MOB_WITHER_SHOOT = 1014;
+    	public static final int MOB_BAT_TAKEOFF = 1015;
+    	public static final int MOB_ZOMBIE_INFECT = 1016;
+    	public static final int MOB_ZOMBIE_UNFECT = 1017;
     	public static final int MOB_ENDER_DRAGON_END = 1018;
+    	public static final int RANDOM_ANVIL_BREAK = 1020;
+    	public static final int RANDOM_ANVIL_USE = 1021;
+    	public static final int RANDOM_ANVIL_LAND = 1022;
     	
     	private static final SoundEffects INSTANCE = new SoundEffects();
     	
@@ -87,6 +98,11 @@ public class Packet3DSoundOrParticleEffect extends AbstractPacket {
     	 * Mob spawn. Smoke and flames.
     	 */
     	public static final int MOB_SPAWN_EFFECT = 2004;
+    	
+    	/**
+    	 * Spawn a "happy villager" effect (hearts). 
+    	 */
+    	public static final int HAPPY_VILLAGER = 2005;
     	
     	private static final ParticleEffects INSTANCE = new ParticleEffects();
     	

@@ -6,7 +6,7 @@ This requires you to decompile the Minecraft source code with [JD Gui](http://ja
 ([tutorial](http://forums.bukkit.org/threads/lib-1-4-6-protocollib-2-0-0-safely-and-easily-modify-sent-and-recieved-packets.101035/page-2#post-1366140)). 
 It would be much easier if these packets could be accessed as any other normal Java bean. 
 
-Enter PacketWrapper. It contains wrapper classes for all known packets in 1.5.1, providing you with access to the fields by name, along
+Enter PacketWrapper. It contains wrapper classes for all known packets in 1.6.1, providing you with access to the fields by name, along
 with automatic conversion to existing Bukkit enumerations and classes. It also includes a number of custom enumerations when appropriate.
 
 You can use PacketWrapper as a dependency if you wish, though the intent is for plugin authors to simply copy-and-paste the classes they need into their 

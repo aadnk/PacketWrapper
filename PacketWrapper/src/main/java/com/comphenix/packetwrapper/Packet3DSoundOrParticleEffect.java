@@ -17,6 +17,9 @@
 
 package com.comphenix.packetwrapper;
 
+import org.bukkit.Location;
+import org.bukkit.World;
+
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.reflect.IntEnum;
 
@@ -210,6 +213,25 @@ public class Packet3DSoundOrParticleEffect extends AbstractPacket {
     */
     public void setZ(int value) {
         handle.getIntegers().write(4, value);
+    }
+    
+    /**
+     * Retrieve the location of this particle or sound effect. 
+     * @param world - the containing world.
+     * @return The location.
+     */
+    public Location getLocation(World world) {
+    	return new Location(world, getX(), getY(), getZ());
+    }
+    
+    /**
+     * Set the location of this particle or sound effect.
+     * @param loc - the location.
+     */
+    public void setLocation(Location loc) {
+    	setX(loc.getBlockX());
+    	setY(loc.getBlockY());
+    	setZ(loc.getBlockZ());
     }
     
     /**

@@ -104,7 +104,7 @@ public class Packet12Animation extends AbstractPacket {
      * @return The current Animation
     */
     public int getAnimation() {
-        return handle.getIntegers().read(1).byteValue();
+        return handle.getIntegers().read(1);
     }
     
     /**

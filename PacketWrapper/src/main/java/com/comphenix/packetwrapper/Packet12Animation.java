@@ -103,7 +103,7 @@ public class Packet12Animation extends AbstractPacket {
      * Retrieve animation ID.
      * @return The current Animation
     */
-    public byte getAnimation() {
+    public int getAnimation() {
         return handle.getIntegers().read(1).byteValue();
     }
     
@@ -111,8 +111,8 @@ public class Packet12Animation extends AbstractPacket {
      * Set animation ID.
      * @param value - new value.
     */
-    public void setAnimation(byte value) {
-        handle.getIntegers().write(1, (int) value);
+    public void setAnimation(int value) {
+        handle.getIntegers().write(1, value);
     }
 }
 

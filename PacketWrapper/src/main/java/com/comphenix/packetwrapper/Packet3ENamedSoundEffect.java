@@ -20,7 +20,11 @@ package com.comphenix.packetwrapper;
 import java.lang.reflect.Field;
 import java.util.List;
 
+import org.bukkit.Location;
+import org.bukkit.World;
+
 import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.events.PacketEvent;
 import com.google.common.collect.Lists;
 
 public class Packet3ENamedSoundEffect extends AbstractPacket {
@@ -243,6 +247,24 @@ public class Packet3ENamedSoundEffect extends AbstractPacket {
     */
     public void setSoundName(String value) {
         handle.getStrings().write(0, value);
+    }
+
+    /**
+     * Retrieve the location of the effect.
+     * @param event - the current event.
+     * @return The effect location.
+     */
+    public Location getEffectPosition(PacketEvent event) {
+    	return getEffectPosition(event.getPlayer().getWorld());
+    }
+    
+    /**
+     * Retrieve the location of the effect.
+     * @param world - the current world.
+     * @return The effect location.
+     */
+    public Location getEffectPosition(World world) {
+    	return new Location(world, getEffectPositionX(), getEffectPositionY(), getEffectPositionZ());
     }
     
     /**

@@ -120,7 +120,7 @@ public class EntityMetadata extends WrappedDataWatcher {
 	}
 
 	public void setWolfFlags(byte flags) {
-		this.setObject(18, flags);
+		this.setObject(16, flags);
 	}
 
 	public void setWolfHealth(float health) {
@@ -128,31 +128,31 @@ public class EntityMetadata extends WrappedDataWatcher {
 	}
 
 	public void setWolfBegging(byte begging) {
-		this.setObject(18, begging);
+		this.setObject(19, begging);
 	}
 
 	public void setWolfCollarColor(byte color) {
-		this.setObject(18, color);
+		this.setObject(20, color);
 	}
 
 	public void setHasSaddle(byte value) {
-		this.setObject(18, value);
+		this.setObject(16, value);
 	}
 
 	public void setSheepFlags(byte flags) {
-		this.setObject(18, flags);
+		this.setObject(16, flags);
 	}
 
 	public void setVillagerType(byte type) {
-		this.setObject(18, type);
+		this.setObject(16, type);
 	}
 
 	public void setEndermanBlock(byte block) {
-		this.setObject(18, block);
+		this.setObject(16, block);
 	}
 
 	public void setEndermanBlockData(byte blockData) {
-		this.setObject(18, blockData);
+		this.setObject(17, blockData);
 	}
 
 	public void setEndermanScreaming(byte value) {
@@ -160,59 +160,59 @@ public class EntityMetadata extends WrappedDataWatcher {
 	}
 
 	public void setZombieChid(byte child) {
-		this.setObject(18, child);
+		this.setObject(12, child);
 	}
 
 	public void setZombieVillager(byte villager) {
-		this.setObject(18, villager);
+		this.setObject(13, villager);
 	}
 
 	public void setZombieConverting(byte converting) {
-		this.setObject(18, converting);
+		this.setObject(14, converting);
 	}
 
 	public void setBlazeOnFire(byte onFire) {
-		this.setObject(18, onFire);
+		this.setObject(16, onFire);
 	}
 
 	public void setSpiderClimbing(byte climbing) {
-		this.setObject(18, climbing);
+		this.setObject(16, climbing);
 	}
 
 	public void setCreeperState(byte flags) {
-		this.setObject(18, flags);
+		this.setObject(16, flags);
 	}
 
 	public void setCreeperCharged(byte charged) {
-		this.setObject(18, charged);
+		this.setObject(17, charged);
 	}
 
 	public void setGhastAttacking(byte attacking) {
-		this.setObject(18, attacking);
+		this.setObject(17, attacking);
 	}
 
 	public void setSlimeSlze(byte size) {
-		this.setObject(18, size);
+		this.setObject(16, size);
 	}
 
 	public void setMagmaCubeSize(byte size) {
-		this.setObject(18, size);
+		this.setObject(16, size);
 	}
 
 	public void setSkeletonType(byte type) {
-		this.setObject(18, type);
+		this.setObject(13, type);
 	}
 
 	public void setWitchAgro(byte agro) {
-		this.setObject(18, agro);
+		this.setObject(21, agro);
 	}
 
 	public void setIronGolemPlayerCreated(byte value) {
-		this.setObject(18, value);
+		this.setObject(16, value);
 	}
 
 	public void setWitherHeadTarget1(int target) {
-		this.setObject(18, target);
+		this.setObject(17, target);
 	}
 
 	public void setWitherHeadTarget2(int target) {
@@ -220,15 +220,15 @@ public class EntityMetadata extends WrappedDataWatcher {
 	}
 
 	public void setWitherHeadTarget3(int target) {
-		this.setObject(18, target);
+		this.setObject(19, target);
 	}
 
 	public void setWitherInvulnerableTime(int time) {
-		this.setObject(18, time);
+		this.setObject(20, time);
 	}
 
 	public void setBoatTimeSinceHit(int time) {
-		this.setObject(18, time);
+		this.setObject(17, time);
 	}
 
 	public void setBoatFowardDirection(int dir) {
@@ -236,11 +236,11 @@ public class EntityMetadata extends WrappedDataWatcher {
 	}
 
 	public void setBoatDamage(int damage) {
-		this.setObject(18, damage);
+		this.setObject(19, damage);
 	}
 
 	public void setMinecraftShakingPower(int power) {
-		this.setObject(18, power);
+		this.setObject(17, power);
 	}
 
 	public void setMinecartSkakeingDirection(int dir) {
@@ -248,23 +248,23 @@ public class EntityMetadata extends WrappedDataWatcher {
 	}
 
 	public void setMinecartDamage(float damage) {
-		this.setObject(18, damage);
+		this.setObject(19, damage);
 	}
 
 	public void setBlockInMinecart(int block) {
-		this.setObject(18, block);
+		this.setObject(20, block);
 	}
 
 	public void setMinecraftBlockYOffest(int y) {
-		this.setObject(18, y);
+		this.setObject(21, y);
 	}
-	
-	public void setShowMinecartBlock(byte value){
-		this.setObject(18, value);
+
+	public void setShowMinecartBlock(byte value) {
+		this.setObject(22, value);
 	}
 
 	public void setFurnaceMinecartPowered(byte powered) {
-		this.setObject(18, powered);
+		this.setObject(16, powered);
 	}
 
 	/**
@@ -274,7 +274,7 @@ public class EntityMetadata extends WrappedDataWatcher {
 	}
 
 	public void setArrowCriticalHit(byte value) {
-		this.setObject(18, value);
+		this.setObject(16, value);
 	}
 
 	/**
@@ -282,19 +282,267 @@ public class EntityMetadata extends WrappedDataWatcher {
 	 */
 	public void setFireworkInfo() {
 	}
-	
+
 	/**
 	 * ProtocolLib does not yet support this function
 	 */
 	public void setItemFrameItem() {
 	}
 
-	public void setItemFrameRotation() {
-		this.setObject(18, type);
+	public void setItemFrameRotation(byte rotation) {
+		this.setObject(3, rotation);
 	}
 
-	public void setEnderCrystalAlive() {
-		this.setObject(18, type);
+	public void setEnderCrystalAlive(byte health) {
+		this.setObject(8, health);
 	}
 
+	public Object getFlags() {
+		return this.getObject(0);
+	}
+
+	public Object getAir() {
+		return this.getObject(1);
+	}
+
+	public Object getHealth() {
+		return this.getObject(6);
+	}
+
+	public Object getPotionEffectColor() {
+		return this.getObject(7);
+	}
+
+	public Object getPotionEffectAmbient() {
+		return this.getObject(8);
+	}
+
+	public Object getNumArrowsInEntity() {
+		return this.getObject(9);
+	}
+
+	public Object getNameTag() {
+		return this.getObject(10);
+	}
+
+	public Object getAlwaysShowNameTag() {
+		return this.getObject(11);
+	}
+
+	public Object getEntityAge() {
+		return this.getObject(12);
+	}
+
+	public Object getHorseFlags() {
+		return this.getObject(16);
+	}
+
+	public Object getHorgetype() {
+		return this.getObject(19);
+	}
+
+	public Object getHorseColorAndTexture() {
+		return this.getObject(20);
+	}
+
+	public Object getHorseOwnerName() {
+		return this.getObject(21);
+	}
+
+	public Object getBatHanging() {
+		return this.getObject(16);
+	}
+
+	public Object getTame() {
+		return this.getObject(16);
+	}
+
+	public Object getOwnersName() {
+		return this.getObject(17);
+	}
+
+	public Object getOcelotType() {
+		return this.getObject(18);
+	}
+
+	public Object getWolfFlags() {
+		return this.getObject(16);
+	}
+
+	public Object getWolfHealth() {
+		return this.getObject(18);
+	}
+
+	public Object getWolfBegging() {
+		return this.getObject(19);
+	}
+
+	public Object getWolfCollarColor() {
+		return this.getObject(20);
+	}
+
+	public Object getHasSaddle() {
+		return this.getObject(16);
+	}
+
+	public Object getSheepFlags() {
+		return this.getObject(16);
+	}
+
+	public Object getVillagerType() {
+		return this.getObject(16);
+	}
+
+	public Object getEndermanBlock() {
+		return this.getObject(16);
+	}
+
+	public Object getEndermanBlockData() {
+		return this.getObject(17);
+	}
+
+	public Object getEndermanScreaming() {
+		return this.getObject(18);
+	}
+
+	public Object getZombieChid() {
+		return this.getObject(12);
+	}
+
+	public Object getZombieVillager() {
+		return this.getObject(13);
+	}
+
+	public Object getZombieConverting() {
+		return this.getObject(14);
+	}
+
+	public Object getBlazeOnFire() {
+		return this.getObject(16);
+	}
+
+	public Object getSpiderClimbing() {
+		return this.getObject(16);
+	}
+
+	public Object getCreeperState() {
+		return this.getObject(16);
+	}
+
+	public Object getCreeperCharged() {
+		return this.getObject(17);
+	}
+
+	public Object getGhastAttacking() {
+		return this.getObject(16);
+	}
+
+	public Object getSlimeSlze() {
+		return this.getObject(16);
+	}
+
+	public Object getMagmaCubeSize() {
+		return this.getObject(16);
+	}
+
+	public Object getSkeletonType() {
+		return this.getObject(13);
+	}
+
+	public Object getWitchAgro() {
+		return this.getObject(21);
+	}
+
+	public Object getIronGolemPlayerCreated() {
+		return this.getObject(16);
+	}
+
+	public Object getWitherHeadTarget1() {
+		return this.getObject(17);
+	}
+
+	public Object getWitherHeadTarget2() {
+		return this.getObject(18);
+	}
+
+	public Object getWitherHeadTarget3() {
+		return this.getObject(19);
+	}
+
+	public Object getWitherInvulnerableTime() {
+		return this.getObject(20);
+	}
+
+	public Object getBoatTimeSinceHit() {
+		return this.getObject(17);
+	}
+
+	public Object getBoatFowardDirection() {
+		return this.getObject(18);
+	}
+
+	public Object getBoatDamage() {
+		return this.getObject(19);
+	}
+
+	public Object getMinecraftShakingPower() {
+		return this.getObject(17);
+	}
+
+	public Object getMinecartSkakeingDirection() {
+		return this.getObject(18);
+	}
+
+	public Object getMinecartDamage() {
+		return this.getObject(19);
+	}
+
+	public Object getBlockInMinecart() {
+		return this.getObject(20);
+	}
+
+	public Object getMinecraftBlockYOffest() {
+		return this.getObject(21);
+	}
+
+	public Object getShowMinecartBlock() {
+		return this.getObject(22);
+	}
+
+	public Object getFurnaceMinecartPowered() {
+		return this.getObject(16);
+	}
+
+	/**
+	 * ProtocolLib does not yet support return this function
+	 */
+	public Object getItem() {
+		return null;
+	}
+
+	public Object getArrowCriticalHit(byte value) {
+		return this.getObject(16);
+	}
+
+	/**
+	 * ProtocolLib does not yet support return this function
+	 */
+	public Object getFireworkInfo() {
+		return null;
+	}
+
+	/**
+	 * ProtocolLib does not yet support return this function
+	 */
+	public Object getItemFrameItem() {
+		return null;
+	}
+
+	public Object getItemFrameRotation(byte rotation) {
+		return this.getObject(3);
+	}
+
+	public Object getEnderCrystalAlive(byte health) {
+		return this.getObject(8);
+	}
 }

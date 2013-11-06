@@ -312,7 +312,7 @@ public class EntityMetadata {
 			return getMeta(16);
 		}
 
-		public Object getHorgetype() {
+		public Object getHorseType() {
 			return getMeta(19);
 		}
 

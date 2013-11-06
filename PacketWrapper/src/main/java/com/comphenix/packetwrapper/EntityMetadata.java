@@ -18,7 +18,7 @@ import com.comphenix.protocol.wrappers.WrappedDataWatcher;
 
 public class EntityMetadata {
 
-	private WrappedDataWatcher metadata;
+	protected WrappedDataWatcher metadata;
 
 	/**
 	 * Use: Gets the final metadata for use in the setMetadata(WrappedDataWatcher value) method
@@ -26,6 +26,138 @@ public class EntityMetadata {
 	 */
 	public WrappedDataWatcher getMetadata() {
 		return metadata;
+	}
+
+	public static EntityMetadata newEntityMetadata() {
+		return new EntityMetadata();
+	}
+
+	public static LivingEntityMetadata newLivingEntityMetadata() {
+		return new LivingEntityMetadata();
+	}
+
+	public static AgeableMetadata newAgeableMetadata() {
+		return new AgeableMetadata();
+	}
+
+	public static HorseMetadata newHorseMetadata() {
+		return new HorseMetadata();
+	}
+
+	public static BatMetadata newBatMetadata() {
+		return new BatMetadata();
+	}
+
+	public static TameableMetadata newTameableMetadata() {
+		return new TameableMetadata();
+	}
+
+	public static OcelotMetadata newOcelotMetadata() {
+		return new OcelotMetadata();
+	}
+
+	public static WolfMetadata newWolfMetadata() {
+		return new WolfMetadata();
+	}
+
+	public static PigMetadata newPigMetadata() {
+		return new PigMetadata();
+	}
+
+	public static SheepMetadata newSheepMetadata() {
+		return new SheepMetadata();
+	}
+
+	public static VillagerMetadata newVillagerMetadata() {
+		return new VillagerMetadata();
+	}
+
+	public static EndermanMetadata newEndermanMetadata() {
+		return new EndermanMetadata();
+	}
+
+	public static ZombieMetadata newZombieMetadata() {
+		return new ZombieMetadata();
+	}
+
+	public static PigZombieMetadata newPigZombieMetadata() {
+		return new PigZombieMetadata();
+	}
+
+	public static BlazeMetadata newBlazeMetadata() {
+		return new BlazeMetadata();
+	}
+
+	public static SpiderMetadata newSpiderMetadata() {
+		return new SpiderMetadata();
+	}
+
+	public static CaveSpiderMetadata newCaveSpiderMetadata() {
+		return new CaveSpiderMetadata();
+	}
+
+	public static CreeperMetadata newCreeperMetadata() {
+		return new CreeperMetadata();
+	}
+
+	public static GhastMetadata newGhastMetadata() {
+		return new GhastMetadata();
+	}
+
+	public static SlimeMetadata newSlimeMetadata() {
+		return new SlimeMetadata();
+	}
+
+	public static MagmaCubeMetadata newMagmaCubeMetadata() {
+		return new MagmaCubeMetadata();
+	}
+
+	public static SkeletonMetadata newSkeletonMetadata() {
+		return new SkeletonMetadata();
+	}
+
+	public static WitchMetadata newWitchMetadata() {
+		return new WitchMetadata();
+	}
+
+	public static IronGolemMetadata newIronGolemMetadata() {
+		return new IronGolemMetadata();
+	}
+
+	public static WitherMetadata newWitherMetadata() {
+		return new WitherMetadata();
+	}
+
+	public static BoatMetadata newBoatMetadata() {
+		return new BoatMetadata();
+	}
+
+	public static MinecartMetadata newMinecartMetadata() {
+		return new MinecartMetadata();
+	}
+
+	public static FurnaceMinecartMetadata newFurnaceMinecartMetadata() {
+		return new FurnaceMinecartMetadata();
+	}
+
+	public static ItemMetadata newItemMetadata() {
+		return new ItemMetadata();
+	}
+
+	public static ArrowMetadata newArrowMetadata() {
+		return new ArrowMetadata();
+	}
+
+	public static FireworkMetadata newFireworkMetadata() {
+		return new FireworkMetadata();
+	}
+
+	public static ItemFrameMetadata newItemFrameMetadata() {
+		return new ItemFrameMetadata();
+	}
+
+	public static EnderCrystalMetadata newEnderCrystalMetadata() {
+		return new EnderCrystalMetadata();
 	}
 
 	/**
@@ -121,7 +253,7 @@ public class EntityMetadata {
 	 * Represents the Metadata of a Living Entity
 	 *
 	 */
-	public static class LivingEntityMetadata extends EntityMetadata {
+	protected static class LivingEntityMetadata extends EntityMetadata {
 		/**
 		 * Index: 6
 		 * Type: Living Entity
@@ -238,7 +370,7 @@ public class EntityMetadata {
 	 * Ageable - can be a child or adult
 	 *
 	 */
-	public static class AgeableMetadata extends LivingEntityMetadata {
+	protected static class AgeableMetadata extends LivingEntityMetadata {
 		/**
 		 * Index: 12
 		 * Type: Ageable
@@ -258,7 +390,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class HorseMetadata extends AgeableMetadata {
+	protected static class HorseMetadata extends AgeableMetadata {
 		public void setHorseFlags(int flags) {
 			setMeta(16, flags);
 		}
@@ -325,7 +457,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class BatMetadata extends LivingEntityMetadata {
+	protected static class BatMetadata extends LivingEntityMetadata {
 		public void setBatHanging(byte hanging) {
 			setMeta(16, hanging);
 		}
@@ -335,7 +467,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class TameableMetadata extends AgeableMetadata {
+	protected static class TameableMetadata extends AgeableMetadata {
 
 		public void setTame(byte tame) {
 			setMeta(16, tame);
@@ -354,7 +486,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class OcelotMetadata extends TameableMetadata {
+	protected static class OcelotMetadata extends TameableMetadata {
 		public void setOcelotType(byte type) {
 			setMeta(18, type);
 		}
@@ -365,7 +497,7 @@ public class EntityMetadata {
 
 	}
 
-	public static class WolfMetadata extends TameableMetadata {
+	protected static class WolfMetadata extends TameableMetadata {
 		public void setWolfFlags(byte flags) {
 			setMeta(16, flags);
 		}
@@ -399,7 +531,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class PigMetadata extends AgeableMetadata {
+	protected static class PigMetadata extends AgeableMetadata {
 		public void setHasSaddle(byte value) {
 			setMeta(16, value);
 		}
@@ -409,7 +541,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class SheepMetadata extends AgeableMetadata {
+	protected static class SheepMetadata extends AgeableMetadata {
 		public void setSheepFlags(byte flags) {
 			setMeta(16, flags);
 		}
@@ -419,7 +551,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class VilagerMetadata extends AgeableMetadata {
+	protected static class VillagerMetadata extends AgeableMetadata {
 
 		public void setVillagerType(byte type) {
 			setMeta(16, type);
@@ -430,7 +562,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class EndermanMetadata extends LivingEntityMetadata {
+	protected static class EndermanMetadata extends LivingEntityMetadata {
 
 		public void setEndermanBlock(byte block) {
 			setMeta(16, block);
@@ -458,7 +590,7 @@ public class EntityMetadata {
 
 	}
 
-	public static class ZombieMetadata extends LivingEntityMetadata {
+	protected static class ZombieMetadata extends LivingEntityMetadata {
 
 		public void setZombieChid(byte child) {
 			setMeta(12, child);
@@ -485,10 +617,10 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class PigZombieMetadata extends ZombieMetadata {
+	protected static class PigZombieMetadata extends ZombieMetadata {
 	}
 
-	public static class BlazeMetadata extends LivingEntityMetadata {
+	protected static class BlazeMetadata extends LivingEntityMetadata {
 
 		public void setBlazeOnFire(byte onFire) {
 			setMeta(16, onFire);
@@ -499,7 +631,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class SpiderMetadata extends LivingEntityMetadata {
+	protected static class SpiderMetadata extends LivingEntityMetadata {
 
 		public void setSpiderClimbing(byte climbing) {
 			setMeta(16, climbing);
@@ -510,10 +642,10 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class CaveSpiderMetadata extends SpiderMetadata {
+	protected static class CaveSpiderMetadata extends SpiderMetadata {
 	}
 
-	public static class CreeperMetadata extends LivingEntityMetadata {
+	protected static class CreeperMetadata extends LivingEntityMetadata {
 		public void setCreeperState(byte flags) {
 			setMeta(16, flags);
 		}
@@ -531,7 +663,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class GhastMetadata extends LivingEntityMetadata {
+	protected static class GhastMetadata extends LivingEntityMetadata {
 
 		public void setGhastAttacking(byte attacking) {
 			setMeta(17, attacking);
@@ -542,7 +674,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class SlimeMetadata extends LivingEntityMetadata {
+	protected static class SlimeMetadata extends LivingEntityMetadata {
 		public void setSlimeSlze(byte size) {
 			setMeta(16, size);
 		}
@@ -553,11 +685,11 @@ public class EntityMetadata {
 
 	}
 
-	public static class MagmaCubeMetadata extends SlimeMetadata {
+	protected static class MagmaCubeMetadata extends SlimeMetadata {
 
 	}
 
-	public static class SkeletonMetadata extends LivingEntityMetadata {
+	protected static class SkeletonMetadata extends LivingEntityMetadata {
 		public void setSkeletonType(byte type) {
 			setMeta(13, type);
 		}
@@ -567,7 +699,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class WitchMetadata extends LivingEntityMetadata {
+	protected static class WitchMetadata extends LivingEntityMetadata {
 
 		public void setWitchAgro(byte agro) {
 			setMeta(21, agro);
@@ -578,7 +710,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class IronGolemMetadata extends LivingEntityMetadata {
+	protected static class IronGolemMetadata extends LivingEntityMetadata {
 		public void setIronGolemPlayerCreated(byte value) {
 			setMeta(16, value);
 		}
@@ -588,7 +720,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class WitherMetadata extends LivingEntityMetadata {
+	protected static class WitherMetadata extends LivingEntityMetadata {
 		public void setWitherHeadTarget1(int target) {
 			setMeta(17, target);
 		}
@@ -622,7 +754,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class BoatMetadata extends EntityMetadata {
+	protected static class BoatMetadata extends EntityMetadata {
 		public void setBoatTimeSinceHit(int time) {
 			setMeta(17, time);
 		}
@@ -648,7 +780,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class MinecartMetadata extends EntityMetadata {
+	protected static class MinecartMetadata extends EntityMetadata {
 		public void setMinecraftShakingPower(int power) {
 			setMeta(17, power);
 		}
@@ -699,7 +831,7 @@ public class EntityMetadata {
 
 	}
 
-	public static class FurnaceMinecartMetadata extends MinecartMetadata {
+	protected static class FurnaceMinecartMetadata extends MinecartMetadata {
 
 		public void setFurnaceMinecartPowered(byte powered) {
 			setMeta(16, powered);
@@ -710,7 +842,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class ItemMetadata extends EntityMetadata {
+	protected static class ItemMetadata extends EntityMetadata {
 		public void setItem(ItemStack item) {
 			setMeta(10, item);
 		}
@@ -720,7 +852,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class ArrowMetadata extends EntityMetadata {
+	protected static class ArrowMetadata extends EntityMetadata {
 		public void setArrowCriticalHit(byte value) {
 			setMeta(16, value);
 		}
@@ -733,7 +865,7 @@ public class EntityMetadata {
 	/**
 	 * ProtocolLib does not yet support this function
 	 */
-	public static class FireworkMetadata extends EntityMetadata {
+	protected static class FireworkMetadata extends EntityMetadata {
 		public void setFireworkInfo() {
 		}
 
@@ -745,7 +877,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class ItemFrameMetadata extends EntityMetadata {
+	protected static class ItemFrameMetadata extends EntityMetadata {
 		public void setItemFrameItem(ItemStack item) {
 			setMeta(2, item);
 		}
@@ -763,7 +895,7 @@ public class EntityMetadata {
 		}
 	}
 
-	public static class EnderCrystalMetadata extends EntityMetadata {
+	protected static class EnderCrystalMetadata extends EntityMetadata {
 		public void setEnderCrystalAlive(byte health) {
 			setMeta(8, health);
 		}
@@ -779,5 +911,13 @@ public class EntityMetadata {
 
 	protected Object getMeta(int index) {
 		return metadata.getObject(index);
+	}
+
+	protected boolean getFlag(int index, int mask) {
+		return ((Integer) getMeta(index) & mask) != 0;
+	}
+
+	protected void setFlag(int index, int mask, boolean value) {
+		setMeta(index, ((Integer) getMeta(index) & ~mask) | (value ? mask : 0));
 	}
 }

@@ -7,11 +7,11 @@ import com.comphenix.protocol.wrappers.WrappedDataWatcher;
 
 /**
  * A useful wrapper for the Wrapped Data Watcher class, easy to understand and use
- * To be used in the setMetadata(EntityMetadata value) method to set a entity's metadata
+ * To be used in the setMetadata(this.getMetadata()) method to set a entity's metadata
  * 
  * YOU MUST SET AT LEAST ONE TYPE OF METADATA OR USERS WILL CRASH APON ENTITY SPAWN
  * 
- * You must also have a basic understanding of bitmasking to use this class
+ * Multiple (type, color, etc...) options generally offer enums, or can be written directly
  * 
  * @author Quantum64
  */
@@ -20,6 +20,10 @@ public class EntityMetadata {
 
 	private WrappedDataWatcher metadata;
 
+	/**
+	 * Use: Gets the final metadata for use in the setMetadata(WrappedDataWatcher value) method
+	 * @return WrappedDataWatcher - final metadata set
+	 */
 	public WrappedDataWatcher getMetadata() {
 		return metadata;
 	}
@@ -40,6 +44,44 @@ public class EntityMetadata {
 	}
 
 	/**
+	 * Index: 0
+	 * Type: Entity
+	 * Use: Set entity flags as EntityFlags enum option
+	 * @param flags - EntityFlags as an enum
+	 */
+	public void setFlags(EntityFlags flags) {
+		byte a;
+		switch (flags) {
+		case ON_FIRE:
+			a = 0x01 & 0x01;
+			break;
+		case CROUCHED:
+			a = 0x01 & 0x02;
+			break;
+		case SPRINTING:
+			a = 0x01 & 0x08;
+			break;
+		case EATING_DRINKING_BLOCKING:
+			a = 0x01 & 0x10;
+			break;
+		case INVISIBLE:
+			a = 0x01 & 0x20;
+			break;
+		default:
+			a = 0;
+		}
+		setMeta(0, a);
+	}
+
+	/**
+	 * Use: Used with the setFlags(EntityFlags flags) method
+	 * Contains: Options for entity flags (basic data)
+	 */
+	public enum EntityFlags {
+		ON_FIRE, CROUCHED, SPRINTING, EATING_DRINKING_BLOCKING, INVISIBLE
+	}
+
+	/**
 	 * Index: 1
 	 * Type: Entity
 	 * Use: Current time in air - only used in game for Falling Sand Entity
@@ -49,14 +91,36 @@ public class EntityMetadata {
 		setMeta(1, air);
 	}
 
+	/**
+	 * Index: 0
+	 * Type: Entity
+	 * Use: Get entity flags as byte
+	 * @return flags - Entity flags bit mask: (flags as byte, cast if needed)
+	 * 0x01 = On Fire      
+	 * 0x02	= Crouched      
+	 * 0x08 = Sprinting     
+	 * 0x10 = Eating/Drinking/Blocking      
+	 * 0x20	 Invisible     
+	 */
 	public Object getFlags() {
 		return getMeta(0);
 	}
 
+	/**
+	 * Index: 1
+	 * Type: Entity
+	 * Use: Current time in air - only used in game for Falling Sand Entity
+	 * @return air - Current time in air (as a short, cast if needed)
+	 */
 	public Object getAir() {
 		return getMeta(1);
 	}
 
+	/**
+	 * 
+	 * Represents the Metadata of a Living Entity
+	 *
+	 */
 	public static class LivingEntityMetadata extends EntityMetadata {
 		/**
 		 * Index: 6
@@ -71,7 +135,7 @@ public class EntityMetadata {
 		/**
 		 * Index: 7
 		 * Type: Living Entity
-		 * Use: Set the potion effect color for the Living Entity
+		 * Use: Set the potion effect color for the Living Entity (Do not assign if you are not going to use potion effect particals!)
 		 * @param color -  color of potion effect particals
 		 */
 		public void setPotionEffectColor(int color) {
@@ -81,56 +145,114 @@ public class EntityMetadata {
 		/**
 		 * Index: 8
 		 * Type: Living Entity
-		 * Use: Sets if the potion effect particals are visible or not
+		 * Use: Sets if the potion effect particals are visible or not (required feild for a Named Entity, set to zero if you do not want potion effect particals)
 		 * @param value - byte 1 or 0 (see potion effect particals = 1, no potion effect particals = 0)
 		 */
 		public void setPotionEffectAmbient(byte value) {
 			setMeta(8, value);
 		}
 
+		/**
+		 * Index: 9
+		 * Type: Living Entity
+		 * Use: Sets number of arrows in entity, client will crash if it is more than 254, or less than 1 (do not assign if 0)
+		 * @param arrows - number of arrows in entity
+		 */
 		public void setNumArrowsInEntity(byte arrows) {
 			setMeta(9, arrows);
 		}
 
+		/**
+		 * Index: 10
+		 * Type: Living Entity
+		 * Use: Sets the name (name tag) of the entity
+		 * @param nameTag - Name of Living Entity as a String use '&' for color codes
+		 */
 		public void setNameTag(String nameTag) {
 			setMeta(10, ChatColor.translateAlternateColorCodes('&', nameTag));
 		}
 
+		/**
+		 * Index: 11
+		 * Type: Living Entity
+		 * Use: Sets if the name tag of the entity is always visible, even if the player is not looking directly at it
+		 * If spawning a Named Entity (Player) the name tag is always visible regardless of this option
+		 * @param value - Always see name tag even if not looking at entity (as a byte 0 = false, 1 = true)
+		 */
 		public void setAlwaysShowNameTag(byte value) {
 			setMeta(11, value);
 		}
 
+		/**
+		 * @return health - returns the health of the Living Entity (as a float, cast if needed)
+		 */
 		public Object getHealth() {
 			return getMeta(6);
 		}
 
+		/**
+		 * Use: Get the color of the potion effect particals of the Living Entity 
+		 * @return color - color of potion effect particals (as an int, cast if needed)
+		 */
 		public Object getPotionEffectColor() {
 			return getMeta(7);
 		}
 
+		/**
+		 * 
+		 * @return value - returns if the potion effect particals are visible (as a byte 0 = false, 1 = true)
+		 */
 		public Object getPotionEffectAmbient() {
 			return getMeta(8);
 		}
 
+		/**
+		 * 
+		 * @return arrows - the number of arrows in the entity (as an byte, cast if needed)
+		 */
 		public Object getNumArrowsInEntity() {
 			return getMeta(9);
 		}
 
+		/**
+		 * 
+		 * @return name - the name (name tag) of the Living Entity (as a String, cast if needed)
+		 */
 		public Object getNameTag() {
 			return getMeta(10);
 		}
 
+		/**
+		 * 
+		 * @return value - Always see name tag even if not looking at entity (as a byte 0 = false, 1 = true)
+		 */
 		public Object getAlwaysShowNameTag() {
 			return getMeta(11);
 		}
 
 	}
 
+	/**
+	 * 
+	 * Represents an Ageable metadata - extends Living Entity
+	 * Ageable - can be a child or adult
+	 *
+	 */
 	public static class AgeableMetadata extends LivingEntityMetadata {
+		/**
+		 * Index: 12
+		 * Type: Ageable
+		 * Use: Set the Ageable Entity's age (this effects how soon the entity will grow, age = time adult, really)
+		 * @param age - Entity's Age (Negative = Child)
+		 */
 		public void setEntityAge(int age) {
 			setMeta(12, age);
 		}
 
+		/**
+		 * 
+		 * @return age - returns the entity's age (as an int, cast if needed)
+		 */
 		public Object getEntityAge() {
 			return getMeta(12);
 		}
@@ -139,6 +261,39 @@ public class EntityMetadata {
 	public static class HorseMetadata extends AgeableMetadata {
 		public void setHorseFlags(int flags) {
 			setMeta(16, flags);
+		}
+
+		public void setHorseFLags(HorseFlags flags) {
+			int a;
+			switch (flags) {
+			case IS_TAME:
+				a = 0x01 & 0x02;
+				break;
+			case HAS_SADDLE:
+				a = 0x01 & 0x04;
+				break;
+			case HAS_CHEST:
+				a = 0x01 & 0x08;
+			case IS_BRED:
+				a = 0x01 & 0x10;
+				break;
+			case IS_EATING:
+				a = 0x01 & 0x20;
+				break;
+			case IS_REARING:
+				a = 0x01 & 0x40;
+				break;
+			case MOUTH_OPEN:
+				a = 0x01 & 0x80;
+				break;
+			default:
+				a = 0;
+			}
+			setMeta(16, a);
+		}
+
+		public enum HorseFlags {
+			IS_TAME, HAS_SADDLE, HAS_CHEST, IS_BRED, IS_EATING, IS_REARING, MOUTH_OPEN
 		}
 
 		public void setHorseType(byte type) {

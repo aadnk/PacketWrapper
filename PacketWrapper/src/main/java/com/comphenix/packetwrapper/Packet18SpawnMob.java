@@ -269,6 +269,7 @@ public class Packet18SpawnMob extends AbstractPacket {
     public void setMetadata(WrappedDataWatcher value) {
         handle.getDataWatcherModifier().write(0, value);
     }
+
 }
 
 

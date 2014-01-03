@@ -4,7 +4,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 
-import com.comphenix.protocol.Packets;
+import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.reflect.StructureModifier;
 
@@ -174,7 +174,7 @@ public class ChunkPacketProcessor {
      * @return The chunk packet processor.
      */
     public static ChunkPacketProcessor fromMapPacket(PacketContainer packet, World world) {
-    	if (packet.getID() != Packets.Server.MAP_CHUNK)
+    	if (!packet.getType().equals(PacketType.Play.Server.MAP_CHUNK))
     		throw new IllegalArgumentException(packet + " must be a MAP_CHUNK packet.");
     	
     	StructureModifier<Integer> ints = packet.getIntegers();
@@ -202,7 +202,7 @@ public class ChunkPacketProcessor {
      * @return The chunk packet processors.
      */
     public static ChunkPacketProcessor[] fromMapBulkPacket(PacketContainer packet, World world) {
-    	if (packet.getID() != Packets.Server.MAP_CHUNK_BULK)
+    	if (!packet.getType().equals(PacketType.Play.Server.MAP_CHUNK_BULK))
     		throw new IllegalArgumentException(packet + " must be a MAP_CHUNK_BULK packet.");
     	
     	StructureModifier<int[]> intArrays = packet.getIntegerArrays();

@@ -16,36 +16,35 @@
  */
 
 package com.comphenix.packetwrapper;
-
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
-import com.google.common.base.Objects;
 
-public abstract class AbstractPacket {
-	// The packet we will be modifying
-	protected PacketContainer handle;
-
-	/**
-	 * Constructs a new strongly typed wrapper for the given packet.
-	 * @param handle - handle to the raw packet data.
-	 * @param type - the packet type.
-	 */
-	protected AbstractPacket(PacketContainer handle, PacketType type) {
-		// Make sure we're given a valid packet
-		if (handle == null)
-			throw new IllegalArgumentException("Packet handle cannot be NULL.");
-		if (Objects.equal(handle.getType(), type))
-			throw new IllegalArgumentException(
-					handle.getHandle() + " is not a packet of type " + type);
-		
-		this.handle = handle;
-	}
-
-	/**
-	 * Retrieve a handle to the raw packet data.
-	 * @return Raw packet data.
-	 */
-	public PacketContainer getHandle() {
-		return handle;
-	}
+public class WrapperPlayServerHeldItemSlot extends AbstractPacket {
+    public static final PacketType TYPE = PacketType.Play.Server.HELD_ITEM_SLOT;
+    
+    public WrapperPlayServerHeldItemSlot() {
+        super(new PacketContainer(TYPE), TYPE);
+        handle.getModifier().writeDefaults();
+    }
+    
+    public WrapperPlayServerHeldItemSlot(PacketContainer packet) {
+        super(packet, TYPE);
+    }
+    
+    /**
+     * Retrieve the slot which the player has selected (0-8).
+     * @return The current Slot ID
+    */
+    public short getSlotId() {
+        return handle.getIntegers().read(0).shortValue();
+    }
+    
+    /**
+     * Set the slot which the player has selected (0-8).
+     * @param value - new value.
+    */
+    public void setSlotId(short value) {
+        handle.getIntegers().write(0, (int) value);
+    }
 }
+

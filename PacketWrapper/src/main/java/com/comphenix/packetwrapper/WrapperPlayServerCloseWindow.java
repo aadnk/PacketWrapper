@@ -14,38 +14,37 @@
  *  if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 
  *  02111-1307 USA
  */
-
 package com.comphenix.packetwrapper;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
-import com.google.common.base.Objects;
 
-public abstract class AbstractPacket {
-	// The packet we will be modifying
-	protected PacketContainer handle;
-
-	/**
-	 * Constructs a new strongly typed wrapper for the given packet.
-	 * @param handle - handle to the raw packet data.
-	 * @param type - the packet type.
-	 */
-	protected AbstractPacket(PacketContainer handle, PacketType type) {
-		// Make sure we're given a valid packet
-		if (handle == null)
-			throw new IllegalArgumentException("Packet handle cannot be NULL.");
-		if (Objects.equal(handle.getType(), type))
-			throw new IllegalArgumentException(
-					handle.getHandle() + " is not a packet of type " + type);
-		
-		this.handle = handle;
-	}
-
-	/**
-	 * Retrieve a handle to the raw packet data.
-	 * @return Raw packet data.
-	 */
-	public PacketContainer getHandle() {
-		return handle;
-	}
+public class WrapperPlayServerCloseWindow extends AbstractPacket {
+    public static final PacketType TYPE = PacketType.Play.Server.CLOSE_WINDOW;
+    
+    public WrapperPlayServerCloseWindow() {
+        super(new PacketContainer(TYPE), TYPE);
+        handle.getModifier().writeDefaults();
+    }
+    
+    public WrapperPlayServerCloseWindow(PacketContainer packet) {
+        super(packet, TYPE);
+    }
+    
+    /**
+     * Retrieve this is the id of the window that was or should be closed.
+     * @return The current Window id
+    */
+    public byte getWindowId() {
+        return handle.getIntegers().read(0).byteValue();
+    }
+    
+    /**
+     * Set this is the id of the window that was or should be closed. 
+     * @param value - new value.
+    */
+    public void setWindowId(byte value) {
+        handle.getIntegers().write(0, (int) value);
+    }
 }
+

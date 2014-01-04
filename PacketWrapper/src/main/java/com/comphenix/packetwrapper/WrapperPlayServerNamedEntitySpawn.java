@@ -29,6 +29,7 @@ import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.injector.PacketConstructor;
 import com.comphenix.protocol.wrappers.WrappedDataWatcher;
 import com.comphenix.protocol.wrappers.WrappedGameProfile;
+import com.google.common.base.Preconditions;
 
 public class WrapperPlayServerNamedEntitySpawn extends AbstractPacket {
     public static final PacketType TYPE = PacketType.Play.Server.NAMED_ENTITY_SPAWN;
@@ -94,10 +95,11 @@ public class WrapperPlayServerNamedEntitySpawn extends AbstractPacket {
      * Retrieve the player name.
      * <p>
      * Max length of 16.
-     * @return The current Player Name
+     * @return The current player Name, or NULL if not set.
     */
     public String getPlayerName() {
-        return getProfile().getName();
+    	WrappedGameProfile profile = getProfile();
+        return profile != null ? profile.getName() : null;
     }
     
     /**
@@ -109,7 +111,24 @@ public class WrapperPlayServerNamedEntitySpawn extends AbstractPacket {
     public void setPlayerName(String value) {
     	if (value != null && value.length() > 16)
     		throw new IllegalArgumentException("Maximum player name lenght is 16 characters.");
-    	setProfile(new WrappedGameProfile(getProfile().getId(), value));
+    	setProfile(new WrappedGameProfile(getPlayerUUID(), value));
+    }
+    
+    /**
+     * Retrieve the UUID of the player.
+     * @return The UUID, or NULL if not set.
+     */
+    public String getPlayerUUID() {
+    	WrappedGameProfile profile = getProfile();
+        return profile != null ? profile.getId() : null;
+    }
+    
+    /**
+     * Set the UUID of the player.
+     * @param uuid - the UUID.
+     */
+    public void setPlayerUUID(String uuid) {
+    	setProfile(new WrappedGameProfile(uuid, getPlayerName()));
     }
 
     /**
@@ -272,5 +291,12 @@ public class WrapperPlayServerNamedEntitySpawn extends AbstractPacket {
     */
     public void setMetadata(WrappedDataWatcher value) {
         handle.getDataWatcherModifier().write(0, value);
+    }
+    
+    @Override
+    public PacketContainer getHandle() {
+    	Preconditions.checkNotNull(getPlayerName(), "Must specify a player name.");
+    	Preconditions.checkNotNull(getPlayerUUID(), "Must specify a player UUID.");
+    	return super.getHandle();
     }
 }

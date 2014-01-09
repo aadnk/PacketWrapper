@@ -47,6 +47,8 @@ public class WrapperPlayServerSpawnEntity extends AbstractPacket {
     	public static final int ARROW_PROJECTILE = 60;
     	public static final int SNOWBALL_PROJECTILE = 61;
     	public static final int EGG_PROJECTILE = 62;
+    	public static final int FIRE_BALL_GHAST = 63;
+    	public static final int FIRE_BALL_BLAZE = 64;
     	public static final int THROWN_ENDERPEARL = 65;
     	public static final int WITHER_SKULL = 66;
     	public static final int FALLING_BLOCK = 70;

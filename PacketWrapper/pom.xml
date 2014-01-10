@@ -4,7 +4,7 @@
 	<groupId>com.comphenix.packetwrapper</groupId>
 	<artifactId>PacketWrapper</artifactId>
 	<packaging>jar</packaging>
-	<version>1.6.1-R0.1</version>
+	<version>1.7.2-R0.3</version>
 	<name>PacketWrapper</name>
 	
 	<repositories>
@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>org.bukkit</groupId>
 			<artifactId>bukkit</artifactId>
-			<version>1.6.2-R0.1-SNAPSHOT</version>
+			<version>1.7.2-R0.3-SNAPSHOT</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>

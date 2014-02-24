@@ -89,7 +89,7 @@ public class WrapperPlayServerMapChunkBulk extends AbstractPacket {
      * @return Chunk y coordindates.
     */
     public int[] getChunksY() {
-        return handle.getIntegerArrays().read(0);
+        return handle.getIntegerArrays().read(1);
     }
     
     /**
@@ -97,7 +97,7 @@ public class WrapperPlayServerMapChunkBulk extends AbstractPacket {
      * @param value - new value.
     */
     public void setChunksY(int[] value) {
-        handle.getIntegerArrays().write(0, value);
+        handle.getIntegerArrays().write(1, value);
     }
     
     /**

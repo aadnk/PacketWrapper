@@ -108,6 +108,12 @@ public class WrapperPlayServerWorldEvent extends AbstractPacket {
     	 */
     	public static final int HAPPY_VILLAGER = 2005;
     	
+    	/**
+    	 * Spawn falling particles (added in MC 1.7.2). 
+    	 * @author kangarko
+    	 */
+    	public static final int FALL_PARTICLES = 2006;
+    	
     	private static final ParticleEffects INSTANCE = new ParticleEffects();
     	
     	/**

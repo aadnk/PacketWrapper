@@ -279,7 +279,7 @@ public class WrapperPlayServerSpawnEntity extends AbstractPacket {
      * Set the pitch.
      * @param value - new pitch.
     */
-    public void setPitch(byte value) {
+    public void setPitch(float value) {
         handle.getIntegers().write(8, (int) (value * 256.0F / 360.0F));
     }
     

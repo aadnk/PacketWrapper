@@ -4,7 +4,7 @@
 	<groupId>com.comphenix.packetwrapper</groupId>
 	<artifactId>PacketWrapper</artifactId>
 	<packaging>jar</packaging>
-	<version>1.7.2-R0.3</version>
+	<version>1.7.2-R0.4</version>
 	<name>PacketWrapper</name>
 	
 	<repositories>

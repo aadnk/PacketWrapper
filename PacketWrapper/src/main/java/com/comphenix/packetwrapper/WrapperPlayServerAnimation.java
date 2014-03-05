@@ -15,13 +15,12 @@ public class WrapperPlayServerAnimation extends AbstractPacket {
      * @author Kristian
      */
     public static class Animations extends IntEnum {
-    	public static final int NO_ANIMATION = 0;
-    	public static final int SWING_ARM = 1;
-    	public static final int DAMAGE_ANIMATION = 2;
-    	public static final int LEAVE_BED = 3;
-    	public static final int EAT_FOOD = 5;
-    	public static final int CRITICAL_EFFECT = 6;
-    	public static final int MAGIC_CRITICAL_EFFECT = 7;
+    	public static final int SWING_ARM = 0;
+    	public static final int DAMAGE_ANIMATION = 1;
+    	public static final int LEAVE_BED = 2;
+    	public static final int EAT_FOOD = 3;
+    	public static final int CRITICAL_EFFECT = 4;
+    	public static final int MAGIC_CRITICAL_EFFECT = 5;
     	public static final int UNKNOWN = 102;
     	public static final int CROUCH = 104;
     	public static final int UNCROUCH = 105;

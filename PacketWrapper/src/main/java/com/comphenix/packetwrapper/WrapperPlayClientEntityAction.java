@@ -20,7 +20,6 @@ package com.comphenix.packetwrapper;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 
-import com.comphenix.packetwrapper.WrapperPlayClientClientCommand.Commands;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
@@ -40,9 +39,9 @@ public class WrapperPlayClientEntityAction extends AbstractPacket {
     	public static final int START_SPRINTING = 4;
     	public static final int STOP_SPRINTING = 5;
     	
-    	private static final Commands INSTANCE = new Commands();
+    	private static final Action INSTANCE = new Action();
     	
-    	public static Commands getInstance() {
+    	public static Action getInstance() {
     		return INSTANCE;
     	}
     }

@@ -110,7 +110,8 @@ public class WrapperPlayServerBlockAction extends AbstractPacket {
      * Retrieve the block id this action is set for.
      * @return The current Block ID
     */
-    public short getBlockId() {
+    @SuppressWarnings("deprecation")
+	public short getBlockId() {
         return (short) getBlockType().getId();
     }
     
@@ -118,7 +119,8 @@ public class WrapperPlayServerBlockAction extends AbstractPacket {
      * Set the block id this action is set for.
      * @param value - new value.
     */
-    public void setBlockId(short value) {
+    @SuppressWarnings("deprecation")
+	public void setBlockId(short value) {
     	setBlockType(Material.getMaterial(value));
     }
     
@@ -187,7 +189,8 @@ public class WrapperPlayServerBlockAction extends AbstractPacket {
     	 * Get the instrument type.
     	 * @return Instrument type.
     	 */
-    	public Instrument getInstrument() {
+    	@SuppressWarnings("deprecation")
+		public Instrument getInstrument() {
     		return Instrument.getByType(getByte1());
     	}
     	
@@ -195,7 +198,8 @@ public class WrapperPlayServerBlockAction extends AbstractPacket {
     	 * Set the instrument type.
     	 * @param value - new instrument type.
     	 */
-    	public void setInstrument(Instrument value) {
+    	@SuppressWarnings("deprecation")
+		public void setInstrument(Instrument value) {
     		setByte1(value.getType());
     	}
     	

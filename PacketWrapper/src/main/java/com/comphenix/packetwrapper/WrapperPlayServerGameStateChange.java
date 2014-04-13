@@ -101,7 +101,8 @@ public class WrapperPlayServerGameStateChange extends AbstractPacket {
      * Only used when reason is 3.
      * @return The current Game mode
     */
-    public GameMode getGameMode() {
+    @SuppressWarnings("deprecation")
+	public GameMode getGameMode() {
         return GameMode.getByValue(handle.getIntegers().read(1));
     }
     
@@ -111,7 +112,8 @@ public class WrapperPlayServerGameStateChange extends AbstractPacket {
      * Only used when reason is 3.
      * @param value - new value.
     */
-    public void setGameMode(GameMode value) {
+    @SuppressWarnings("deprecation")
+	public void setGameMode(GameMode value) {
         handle.getIntegers().write(1, value.getValue());
     }
 }

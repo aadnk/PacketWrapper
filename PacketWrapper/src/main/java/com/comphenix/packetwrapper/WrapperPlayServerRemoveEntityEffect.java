@@ -91,7 +91,8 @@ public class WrapperPlayServerRemoveEntityEffect extends AbstractPacket {
      * Retrieve the effect.
      * @return The current effect
     */
-    public PotionEffectType getEffect() {
+    @SuppressWarnings("deprecation")
+	public PotionEffectType getEffect() {
         return PotionEffectType.getById(getEffectId());
     }
     
@@ -99,7 +100,8 @@ public class WrapperPlayServerRemoveEntityEffect extends AbstractPacket {
      * Set the effect id.
      * @param value - new value.
     */
-    public void setEffect(PotionEffectType value) {
+    @SuppressWarnings("deprecation")
+	public void setEffect(PotionEffectType value) {
         setEffectId((byte) value.getId());
     }
 }

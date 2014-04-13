@@ -15,11 +15,11 @@
  *  02111-1307 USA
  */
 
-package com.comphenix.packetwrapper;
+package com.comphenix.example;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
-import com.comphenix.protocol.reflect.IntEnum;
+import com.comphenix.protocol.wrappers.EnumWrappers.ClientCommand;
 
 /**
  * Sent when the client is ready to complete login and when the client is ready to respawn after death.
@@ -27,24 +27,7 @@ import com.comphenix.protocol.reflect.IntEnum;
  */
 public class WrapperPlayClientClientCommand extends AbstractPacket {
     public static final PacketType TYPE = PacketType.Play.Client.CLIENT_COMMAND;
-        
-    /**
-     * Enumeration of all the known commands.
-     * 
-     * @author Kristian
-     */
-    public static class Commands extends IntEnum {
-    	public static final int INITIAL_SPAWN = 0;
-    	public static final int RESPAWN_AFTER_DEATH = 1;
-    	public static final int OPEN_INVENTORY_ACHIEVEMENT = 2;
-    	
-    	private static final Commands INSTANCE = new Commands();
-    	
-    	public static Commands getInstance() {
-    		return INSTANCE;
-    	}
-    }
-    
+            
     public WrapperPlayClientClientCommand() {
         super(new PacketContainer(TYPE), TYPE);
         handle.getModifier().writeDefaults();
@@ -56,19 +39,17 @@ public class WrapperPlayClientClientCommand extends AbstractPacket {
     
     /**
      * Retrieve whether or not we're logging in or respawning.
-     * @see {@link Commands}.
      * @return The current command
     */
-    public int getCommand() {
-        return handle.getIntegers().read(0);
+    public ClientCommand getCommand() {
+        return handle.getClientCommands().read(0);
     }
     
     /**
      * Set whether or not we're logging in or respawning.
-     * @see {@link Commands}.
      * @param value - new value.
     */
-    public void setCommand(int value) {
-        handle.getIntegers().write(0, value);
+    public void setCommand(ClientCommand value) {
+        handle.getClientCommands().write(0, value);
     }
 }

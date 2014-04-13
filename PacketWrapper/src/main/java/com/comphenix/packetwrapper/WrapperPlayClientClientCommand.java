@@ -15,7 +15,7 @@
  *  02111-1307 USA
  */
 
-package com.comphenix.example;
+package com.comphenix.packetwrapper;
 
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;

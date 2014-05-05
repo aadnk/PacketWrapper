@@ -57,6 +57,7 @@ public class WrapperPlayServerSpawnEntity extends AbstractPacket {
     	public static final int THROWN_POTION = 73;
     	public static final int FALLING_DRAGON_EGG = 74;
     	public static final int THROWN_EXP_BOTTLE = 75;
+    	public static final int FIREWORK = 76;
     	public static final int FISHING_FLOAT = 90;
 
 		/**

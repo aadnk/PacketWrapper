@@ -27,7 +27,7 @@ public class WrapperLoginClientEncryptionBegin extends AbstractPacket {
      * Set the shared secret data.
      * @param value - new value.
     */
-    public void getSharedSecret(byte[] value) {
+    public void setSharedSecret(byte[] value) {
         handle.getByteArrays().write(0, value);
     }
     

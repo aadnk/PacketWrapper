@@ -17,6 +17,14 @@
 
 package com.comphenix.packetwrapper;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+
+import org.bukkit.Chunk;
+
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.ChunkCoordIntPair;
@@ -86,6 +94,15 @@ public class WrapperPlayServerMultiBlockChange extends AbstractPacket {
     */
     public void setChunk(ChunkCoordIntPair value) {
         handle.getChunkCoordIntPairs().write(0, value);
+    }
+    
+    /**
+     * Set chunk that has been altered.
+     * @param value - new value.
+    */
+    public void setChunk(Chunk value) {
+        setChunkX(value.getX());
+        setChunkZ(value.getZ());
     }
     
     /**
@@ -172,5 +189,66 @@ public class WrapperPlayServerMultiBlockChange extends AbstractPacket {
      */
     public BlockChangeArray getRecordDataArray() {
     	return new BlockChangeArray(getRecordData());
+    }
+    
+    /**
+     * Retrieve a block change array from the wide representation sent to 1.8 clients.
+     * @return Block change array based on the wide representation.
+     */
+    public BlockChangeArray getWideRecordData() {
+    	short[] locations = handle.getModifier().<short[]>withType(short[].class).read(0);
+    	int[] blocks = handle.getModifier().<int[]>withType(int[].class).read(0);
+
+        ByteArrayOutputStream byteStream = new ByteArrayOutputStream(blocks.length * 4);
+        DataOutputStream dataStream = new DataOutputStream(byteStream);
+        
+        try {
+	        for (int i = 0; i < blocks.length; i++) {
+	        	dataStream.writeShort(locations[i]);
+	        	dataStream.writeShort((short) blocks[i]);
+			}
+        } catch (IOException e) {
+        	// There's no underlying I/O device, so this shouldn't happen
+        	throw new AssertionError("Should not occur.", e);
+        }
+        return new BlockChangeArray(byteStream.toByteArray());
+    }
+    
+    /**
+     * Set the wide record data only sent to the 1.8 client.
+     * @param array - the data.
+     */
+    public void setWideRecordData(BlockChangeArray array) {
+    	setWideRecordData(array.toByteArray());
+    }
+    
+    /**
+     * Set the record data only sent to the 1.8 client.
+     * @param data - the wide data.
+     */
+    public void setWideRecordData(byte[] data) {
+    	int count = data.length / 4;
+    	
+    	if ((data.length % 4) != 0) {
+    		throw new IllegalArgumentException("Input byte array must be a multiple of four.");
+    	}
+    	ByteArrayInputStream byteStream = new ByteArrayInputStream(data);
+        DataInputStream dataStream = new DataInputStream(byteStream);
+        
+        short[] locations = new short[count];
+        int[] blocks = new int[count];
+        
+        try {
+	        for (int i = 0; i < blocks.length; i++) {
+				locations[i] = dataStream.readShort();
+				blocks[i] = dataStream.readShort();
+			}
+        } catch (IOException e) {
+        	throw new AssertionError("Should not occur.", e);
+        }
+        // Write back the changes
+        handle.getModifier().<short[]>withType(short[].class).write(0, locations);
+        handle.getModifier().<int[]>withType(int[].class).write(0, blocks);
+        setRecordCount((short) count);
     }
 }
